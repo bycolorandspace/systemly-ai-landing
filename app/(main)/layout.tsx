@@ -6,7 +6,6 @@ import {
 } from "next/font/google";
 import "../globals.css";
 import { Toaster } from "@/components/ui/sonner";
-import { AuthContextProvider } from "@/contexts/auth-context";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -37,7 +36,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
         <div className="min-h-screen bg-white text-gray-900 landing">
-          <AuthContextProvider>{children}</AuthContextProvider>
+          {children}
           <Toaster />
         </div>
       </body>

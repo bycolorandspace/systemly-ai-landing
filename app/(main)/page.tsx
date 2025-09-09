@@ -10,10 +10,8 @@ import RiskDoctorResults from "@/components/risk-doctor-results";
 import TestimonialsSection from "@/components/testimonials-section";
 import TradesDemoSection from "@/components/trades-demo-section";
 // import FloatingDollars from "@/components/FloatingDollars";
-import { useAuth } from "@/contexts/auth-context";
 import { Plan, Testimonial } from "@/types/general-types";
 import Link from "next/link";
-import Router from "next/navigation";
 import React from "react";
 
 // WE ARE BEHIND YOU.
@@ -90,8 +88,8 @@ const plans: Plan[] = [
 ];
 
 export default function Home() {
-  const { user, isAuthenticated } = useAuth();
-  const router = Router.useRouter();
+  // const { user, isAuthenticated } = useAuth();
+  // const router = Router.useRouter();
 
   const [toggleMoneyBurst, setToggleMoneyBurst] = React.useState(false);
 

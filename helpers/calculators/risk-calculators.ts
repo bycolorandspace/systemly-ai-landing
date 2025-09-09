@@ -235,49 +235,49 @@ export const calculateRiskScenario = (
   };
 };
 
-// Helper function to recalculate with new Fibonacci level
-export const updateFibLevel = (
-  entry: number,
-  stopLossPips: number,
-  lotSize: number,
-  symbol: string,
-  tradeType: "buy" | "sell",
-  newFibLevel: number,
-  stopLossValue?: number
-): RiskScenario => {
-  return riskScenario(
-    entry,
-    stopLossPips,
-    lotSize,
-    symbol,
-    tradeType,
-    newFibLevel, // Updated fib level
-    undefined, // No custom target when using fib
-    stopLossValue
-  );
-};
+// // Helper function to recalculate with new Fibonacci level
+// export const updateFibLevel = (
+//   entry: number,
+//   stopLossPips: number,
+//   lotSize: number,
+//   symbol: string,
+//   tradeType: "buy" | "sell",
+//   newFibLevel: number,
+//   stopLossValue?: number
+// ): RiskScenario => {
+//   return riskScenario(
+//     entry,
+//     stopLossPips,
+//     lotSize,
+//     symbol,
+//     tradeType,
+//     newFibLevel, // Updated fib level
+//     undefined, // No custom target when using fib
+//     stopLossValue
+//   );
+// };
 
-// Helper function to update with custom target
-export const updateCustomTarget = (
-  entry: number,
-  stopLossPips: number,
-  lotSize: number,
-  symbol: string,
-  tradeType: "buy" | "sell",
-  customTarget: number,
-  stopLossValue?: number
-): RiskScenario => {
-  return riskScenario(
-    entry,
-    stopLossPips,
-    lotSize,
-    symbol,
-    tradeType,
-    1.0, // Fib level irrelevant when using custom target
-    customTarget,
-    stopLossValue
-  );
-};
+// // Helper function to update with custom target
+// export const updateCustomTarget = (
+//   entry: number,
+//   stopLossPips: number,
+//   lotSize: number,
+//   symbol: string,
+//   tradeType: "buy" | "sell",
+//   customTarget: number,
+//   stopLossValue?: number
+// ): RiskScenario => {
+//   return riskScenario(
+//     entry,
+//     stopLossPips,
+//     lotSize,
+//     symbol,
+//     tradeType,
+//     1.0, // Fib level irrelevant when using custom target
+//     customTarget,
+//     stopLossValue
+//   );
+// };
 
 // Predefined Fibonacci levels for quick access
 export const FIBONACCI_LEVELS = {

@@ -1,22 +1,20 @@
 import Link from "next/link";
 import { Label } from "../ui/label";
 import { Badge } from "../ui/badge";
-import { formatRelativeTime } from "@/helpers/date-formatter";
 import { Card } from "../ui/card";
-import AnalysisSummarisedOptions from "./analysis-summarised-options";
 import { TradePlan } from "@/types/trading/analysis";
 import { Button } from "../ui/button";
-import { ChevronDown, LucideBike, ThumbsDown, ThumbsUp } from "lucide-react";
+import { ChevronDown, ThumbsDown, ThumbsUp } from "lucide-react";
 // import useTradeCalculator from "@/hooks/useTradeCalculator";
 // import { useEffect } from "react";
 
 export default function AnalysisSummarisedAlt({
   data,
-  created_at,
+  //  created_at,
   accountCurrency,
   pnl,
-  deleted,
-}: {
+}: //deleted,
+{
   data: TradePlan;
   created_at: string | null;
   accountCurrency?: string;
@@ -26,7 +24,7 @@ export default function AnalysisSummarisedAlt({
   return (
     <div
       key={data.id}
-      href={`/analysis/${data.id}`}
+      // href={`/analysis/${data.id}`}
       className="flex flex-col gap-2 group"
     >
       <Card className="flex flex-col h-[295px] justify-evenly w-full gap-4 mb-2 px-0 py-4 bg-card  shadow-none border border-border/30 rounded-2xl hover:bg-card hover:border-secondary transition-colors duration-200">

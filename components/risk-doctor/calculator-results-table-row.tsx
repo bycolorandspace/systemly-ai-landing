@@ -1,5 +1,3 @@
-import { calculationData } from "@/app/risk-doctor/page";
-
 import {
   Tooltip,
   TooltipContent,
@@ -10,6 +8,7 @@ import OpenEditParamDialog from "./edit-risk-param-dialog";
 import { Update_RiskCalculatorInputs } from "@/schema/risk-calculator-schema";
 import { CurrentCalcultorValues } from "@/types/calculator-types";
 import { Skeleton } from "../ui/skeleton";
+import { calculationData } from "../risk-doctor-results";
 
 export default function CalculatorResultsTableRow({
   currentValues,

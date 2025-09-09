@@ -1,24 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import AnalysisSummarised from "./trades/analysis-summarised";
 import tradePlans from "@/data/dummy-trade-plan";
 import Image from "next/image";
 import AnalysisSummarisedAlt from "./trades/analysis-summarised-alt";
-
-// Image Annotation Types
-interface AnnotationPosition {
-  x: number; // Percentage (0-100)
-  y: number; // Percentage (0-100)
-}
-
-interface ImageAnnotation {
-  id: string;
-  imageSrc: string;
-  altText: string;
-  position: AnnotationPosition;
-  delay: number; // Animation delay in milliseconds
-  width?: number; // Optional custom width in pixels
-  height?: number; // Optional custom height in pixels
-}
 
 const DemoCarousel = () => {
   // State to track which item is currently active (centered)

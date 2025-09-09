@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/dialog";
 import { EllipsisVertical, LoaderCircle } from "lucide-react";
 import TextInput from "../forms/text-input";
-import { calculationData } from "@/app/risk-doctor/page";
 import { FormProvider, useForm } from "react-hook-form";
 import { Form } from "../ui/form";
 import { Update_RiskCalculatorInputs } from "@/schema/risk-calculator-schema";
@@ -23,6 +22,7 @@ import {
   getStopLossRange,
   getSymbolData,
 } from "@/helpers/calculators/risk-calculators";
+import { calculationData } from "../risk-doctor-results";
 
 // Enhanced interface with validation context
 interface DialogProps {
