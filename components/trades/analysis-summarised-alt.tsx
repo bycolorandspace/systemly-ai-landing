@@ -5,6 +5,7 @@ import { Card } from "../ui/card";
 import { TradePlan } from "@/types/trading/analysis";
 import { Button } from "../ui/button";
 import { ChevronDown, ThumbsDown, ThumbsUp } from "lucide-react";
+import { formatCurrrencytoSymbol } from "@/helpers/format-currency";
 // import useTradeCalculator from "@/hooks/useTradeCalculator";
 // import { useEffect } from "react";
 
@@ -28,13 +29,13 @@ export default function AnalysisSummarisedAlt({
       className="flex flex-col gap-2 group"
     >
       <Card className="flex flex-col h-[295px] justify-evenly w-full gap-4 mb-2 px-0 py-4 bg-card  shadow-none border border-border/30 rounded-2xl hover:bg-card hover:border-secondary transition-colors duration-200">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-2 px-6">
+        <div className="flex md:flex-row justify-between items-center gap-2 px-4">
           <h2 className="text-3xl text-primary font-light flex flex-row items-center justify-start gap-2">
             {data.direction}
             <Label className="">{data.symbol}</Label>
           </h2>
           <Badge className="bg-primary text-card h-6 group-hover:bg-secondary transition-colors duration-500">
-            {accountCurrency}
+            {formatCurrrencytoSymbol(accountCurrency || "USD")}
             {pnl}
           </Badge>
         </div>

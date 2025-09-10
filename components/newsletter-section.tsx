@@ -14,7 +14,7 @@ import { useState } from "react";
 export default function NewsletterSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
-  const [error, setError] = useState("efefere");
+  const [error, setError] = useState("");
 
   const form = useForm<NewsletterValues>({
     resolver: zodResolver(newsletterFormSchema),

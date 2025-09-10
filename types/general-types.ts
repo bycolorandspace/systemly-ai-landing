@@ -12,6 +12,7 @@ type Plan = {
     billedAnnually: string;
   };
   features: string[];
+  link: string;
 };
 
 export type { Testimonial, Plan };

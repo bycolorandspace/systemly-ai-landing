@@ -154,7 +154,7 @@ const TradesDemoSection = () => {
         </div>
 
         {/* Mobile View - Stack All Items */}
-        <div className="flex md:hidden flex-col gap-6 justify-center items-center">
+        <div className="flex md:hidden flex-col gap-6 justify-center items-center mx-4">
           {demoItems.map((trade, index) => (
             <div className="w-[400px]" key={index}>
               <AnalysisSummarisedAlt

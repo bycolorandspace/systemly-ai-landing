@@ -7,6 +7,7 @@ interface PricingTableProps {
   billingMonthly?: boolean;
   price: string;
   features: string[];
+  link?: string;
 }
 
 export default function PricingTable({
@@ -15,6 +16,7 @@ export default function PricingTable({
   billingMonthly,
   price,
   features,
+  link,
 }: PricingTableProps) {
   return (
     <div className=" rounded-xl py-6 px-4 border-muted border-1 w-full max-w-[280px] mx-auto md:mx-0 space-y-8 flex flex-col justify-between">
@@ -40,7 +42,7 @@ export default function PricingTable({
 
       <CTAButton
         label="Get Started"
-        url="/get-started"
+        url={link}
         color="blue"
         customClass="w-full my-4"
       />

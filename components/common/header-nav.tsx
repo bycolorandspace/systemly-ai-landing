@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CTAButton from "./cta-button";
+import { NAV } from "@/data/links";
 
 export const HeaderNav = ({
   handleNavClick,
@@ -13,28 +14,28 @@ export const HeaderNav = ({
     <>
       <nav className="flex justify-center items-center gap-4">
         <Link
-          href="#about"
-          onClick={(e) => handleNavClick(e, "#about")}
+          href={NAV.about}
+          onClick={(e) => handleNavClick(e, NAV.about)}
           className="text-md text-primary font-semibold hover:text-primary/80 transition-colors"
         >
           About
         </Link>
         <Link
-          href="#features"
-          onClick={(e) => handleNavClick(e, "#features")}
+          href={NAV.features}
+          onClick={(e) => handleNavClick(e, NAV.features)}
           className="text-md text-primary font-semibold hover:text-primary/80 transition-colors"
         >
           Features
         </Link>
         <Link
           href="#pricing"
-          onClick={(e) => handleNavClick(e, "#pricing")}
+          onClick={(e) => handleNavClick(e, NAV.pricing)}
           className="text-md text-primary font-semibold hover:text-primary/80 transition-colors"
         >
           Pricing
         </Link>
         <Link
-          href="#community"
+          href={NAV.community}
           className="text-md text-primary font-semibold hover:text-primary/80 transition-colors"
         >
           Community
@@ -42,7 +43,7 @@ export const HeaderNav = ({
       </nav>
       <CTAButton
         label="Get Started"
-        url="/signup"
+        url={NAV.getStarted}
         color="default"
         customClass="text-primary"
       />

@@ -27,6 +27,7 @@ export default function PricingTableSection({ plans }: { plans: Plan[] }) {
               price={plan.price.billedAnnually}
               features={plan.features}
               billingMonthly={false}
+              link={plan.link}
             />
           );
         })}
