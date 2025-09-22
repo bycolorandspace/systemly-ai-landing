@@ -1,5 +1,5 @@
 import { AuthResults, SignUpData } from "@/types/auth/types";
-import { supabase } from "./supabase";
+import { supabaseAdmin } from "./supabase";
 
 // signUp - Create new account
 // signIn - Login existing user
@@ -22,7 +22,7 @@ export class AuthServiceError extends Error {
 
 export async function signUp(data: SignUpData): Promise<AuthResults> {
   try {
-    const { data: authData, error } = await supabase.auth.signUp({
+    const { data: authData, error } = await supabaseAdmin.auth.signUp({
       email: data.email,
       password: data.password,
       options: {
@@ -59,10 +59,11 @@ export async function logIn(
   password: string
 ): Promise<AuthResults> {
   try {
-    const { data: authData, error } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password,
-    });
+    const { data: authData, error } =
+      await supabaseAdmin.auth.signInWithPassword({
+        email: email,
+        password: password,
+      });
 
     if (error) {
       throw new AuthServiceError(error.message, "AUTH_ERROR", error);
@@ -86,7 +87,7 @@ export async function logIn(
 
 export async function logOut(): Promise<void> {
   try {
-    const { error } = await supabase.auth.signOut();
+    const { error } = await supabaseAdmin.auth.signOut();
 
     if (error) {
       throw new AuthServiceError(error.message, "AUTH_ERROR", error);
@@ -108,7 +109,7 @@ export async function getCurrentSession(): Promise<AuthResults> {
     const {
       data: { session },
       error,
-    } = await supabase.auth.getSession();
+    } = await supabaseAdmin.auth.getSession();
 
     if (error) {
       throw new AuthServiceError(error.message, "AUTH_ERROR", error);
@@ -132,7 +133,7 @@ export async function getCurrentSession(): Promise<AuthResults> {
 
 export async function recoverPassword(email: string) {
   try {
-    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+    const { error } = await supabaseAdmin.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/reset-password`,
     });
 
@@ -157,7 +158,7 @@ export async function updateUser(
   password?: string
 ): Promise<void> {
   try {
-    const { error } = await supabase.auth.updateUser(
+    const { error } = await supabaseAdmin.auth.updateUser(
       {
         email: email,
         password: password,

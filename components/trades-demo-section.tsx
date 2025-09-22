@@ -21,10 +21,6 @@ const TradesDemoSection = () => {
   );
 
   // Add this function to check if current item is centered
-  const isCenterItem = (itemIndex: number) => {
-    if (!emblaMainApi) return false;
-    return itemIndex === emblaMainApi.selectedScrollSnap();
-  };
 
   // Sample demo items
   const demoItems = [

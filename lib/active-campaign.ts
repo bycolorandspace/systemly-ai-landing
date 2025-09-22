@@ -18,7 +18,7 @@ const AC_API_KEY = process.env.ACTIVECAMPAIGN_API_KEY;
 
 // You'll need to get these IDs from your ActiveCampaign setup:
 const WHITELIST_LIST_ID = "4"; // General/Marketing list
-const GENERAL_NEWSLETTER_LIST_ID = "5"; // Master/General list
+//const GENERAL_NEWSLETTER_LIST_ID = "5"; // Master/General list
 
 const ONBOARDING_FIELD_IDS = {
   referralSource: "10",
@@ -200,8 +200,8 @@ export async function sendNewUserToActiveCampaign(
     const contactPayload = {
       contact: {
         email: contactData.email,
-        first_name: contactData.firstName,
-        last_name: contactData.lastName,
+        first_name: contactData.first_name,
+        last_name: contactData.last_name,
         fieldValues: [
           // Personal Information
           // {
