@@ -28,13 +28,13 @@ export default function AnalysisSummarisedAlt({
       // href={`/analysis/${data.id}`}
       className="flex flex-col gap-2 group"
     >
-      <Card className="flex flex-col h-[295px] justify-evenly w-full gap-4 mb-2 px-0 py-4 bg-card  shadow-none border border-border/30 rounded-2xl hover:bg-card hover:border-secondary transition-colors duration-200">
+      <Card className="flex flex-col h-[295px] justify-evenly w-full gap-4 mb-2 px-0 py-4 bg-background  shadow-none border border-border/30 rounded-2xl  transition-colors duration-200">
         <div className="flex md:flex-row justify-between items-center gap-2 px-4">
           <h2 className="text-3xl text-primary font-light flex flex-row items-center justify-start gap-2">
             {data.direction}
             <Label className="">{data.symbol}</Label>
           </h2>
-          <Badge className="bg-primary text-card h-6 group-hover:bg-secondary transition-colors duration-500">
+          <Badge className="bg-primary text-card h-6 group-hover:bg-accent transition-colors duration-500">
             {formatCurrrencytoSymbol(accountCurrency || "USD")}
             {pnl}
           </Badge>
@@ -86,7 +86,7 @@ export default function AnalysisSummarisedAlt({
           <div>
             <Link
               href={"/"}
-              className="text-sm flex flex-row gap-2 items-center"
+              className="text-xs flex flex-row gap-2 items-center"
             >
               <span>See full breakdown</span>{" "}
               <ChevronDown className="w-4 h-4" />

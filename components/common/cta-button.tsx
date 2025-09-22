@@ -10,8 +10,6 @@ interface CTAButtonProps {
   customClass?: string;
 }
 
-
-
 export default function CTAButton({
   label,
   url,
@@ -19,15 +17,15 @@ export default function CTAButton({
   color = "default",
   customClass,
 }: CTAButtonProps) {
-  const buttonClass = `button-style ${color && convertColors(color)} ${
-    customClass || ""
-  }`;
+  const buttonClass = `
+  rounded-lg cursor-pointer flex flex-row  h-[45px] w-[170px]  text-white hover:bg-accent hover:text-foreground  font-semibold text-md
+  ${color && convertColors(color)} ${customClass}  `;
 
   return (
     <div className="flex justify-center items-center">
       {url ? (
         <Button className={buttonClass}>
-          <Link href={url} className={buttonClass}>
+          <Link href={url} className="text-white">
             {label}
           </Link>
         </Button>

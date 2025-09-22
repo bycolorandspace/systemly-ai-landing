@@ -53,7 +53,7 @@ export default function SelectInput({
                 <ChevronDown className="text-secondary absolute right-2 top-1/2 transform -translate-y-1/2" />
               </SelectTrigger>
             </FormControl>
-            <SelectContent className="bg-border text-primary focus:text-primary">
+            <SelectContent className="bg-card text-primary focus:text-primary">
               {formatedData.map(([key, symbol]) => (
                 <SelectItem key={key} value={String(symbol)}>
                   {String(key)}

@@ -8,6 +8,7 @@ import {
   Update_RiskCalculatorInputs,
 } from "@/schema/risk-calculator-schema";
 import {
+  useEffect,
   // useEffect,
   useState,
 } from "react";
@@ -77,6 +78,27 @@ export default function RiskDoctorResults() {
     updatedTradeData
   );
 
+  useEffect(() => {
+    // Reset updatedTradeData after recalculation to avoid stale data issues
+    if (updatedTradeData) {
+      setUpdatedTradeData(undefined);
+    }
+  }, [riskAssessment, scenerio, lotSize]);
+
+  useEffect(() => {
+    // Setup default calculation on initial load
+    const defaultData: RiskCalculatorInputs = {
+      accountCurrency: AccountCurrency.USD,
+      accountSize: 1000,
+      riskPerTrade: 5,
+      pair: "XAUUSD",
+      entryZone: "3339",
+      exectutionType: ExecutionType.BUY, // Default execution type
+    };
+    setRiskData(defaultData);
+    setEntry(parseFloat(defaultData.entryZone ?? "0"));
+  }, []);
+
   const methods = useForm<RiskCalculatorInputs>({
     resolver: zodResolver(riskCalculatorSchema),
     mode: "onBlur", // Use the mode prop here
@@ -84,7 +106,7 @@ export default function RiskDoctorResults() {
       accountCurrency: AccountCurrency.USD,
       accountSize: 1000,
       riskPerTrade: 5,
-      pair: "",
+      pair: "XAUUSD",
       entryZone: "3339",
       exectutionType: ExecutionType.BUY, // Default execution type
     },
@@ -255,12 +277,12 @@ export default function RiskDoctorResults() {
             <ResizablePanel className="space-y-4">
               <div className="flex flex-row text-sm text-foreground justify-between h-4">
                 <span>SL</span>
-                <span>Entry</span>
               </div>
               <div className="h-1 w-full bg-red-500 rounded-l-xl"> </div>
             </ResizablePanel>
             <ResizablePanel className="space-y-4 ">
               <div className="flex flex-row text-sm text-foreground  justify-between h-4">
+                <span>Entry</span>
                 <span>TP</span>
               </div>
 
@@ -291,7 +313,7 @@ export default function RiskDoctorResults() {
         </TabsList>
 
         <TabsContent value="results" className="py-4">
-          <Card className="bg-card shadow-none tableLine gap-0 py-2 px-4 ">
+          <Card className="bg-white shadow-none tableLine gap-0 py-2 px-4 ">
             {calculations.map((calc, index) => (
               <CalculatorResultsTableRow
                 key={index}
@@ -311,7 +333,7 @@ export default function RiskDoctorResults() {
         </TabsContent>
 
         <TabsContent value="scenerio" className="p-4">
-          <Card className="bg-card shadow-none tableLine gap-0 py-2 px-4 ">
+          <Card className="bg-white shadow-none tableLine gap-0 py-2 px-4 ">
             {scenerioData.map((calc, index) => (
               <CalculatorResultsTableRow
                 key={index}

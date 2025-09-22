@@ -20,9 +20,7 @@ export default function TestimonialsSection({ data }: { data: Testimonial[] }) {
       <h3 className="text-sm text-secondary mb-4">
         Traders are already winning
       </h3>
-      <h2 className="text-4xl font-medium text-primary mb-8">
-        What traders say
-      </h2>
+      <h2 className="heading headerh2 mb-8">What traders say</h2>
       {/* {Mobile testimonial} */}
       <div className="md:hidden w-full max-w-md">
         {

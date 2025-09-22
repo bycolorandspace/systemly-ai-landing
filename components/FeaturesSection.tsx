@@ -12,11 +12,9 @@ export default function FeaturesSection({
       className="grid grid-cols-1 md:grid-cols-2 items-center justify-center w-full max-w-6xl md:mx-6 px-4 py-8 "
     >
       {/* Left */}
-      <div className="w-full flex flex-col items-start space-y-2">
+      <div className="w-full flex flex-col items-start space-y-8">
         <h3 className="text-sm text-secondary mb-4">Features</h3>
-        <h2 className="text-4xl font-medium text-primary mb-8">
-          Built by traders, powered by AI
-        </h2>
+        <h2 className="heading headerh2">Built by traders, powered by AI</h2>
 
         {/* Features list */}
         <div className="flex flex-col items-start space-y-4">

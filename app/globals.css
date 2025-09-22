@@ -46,14 +46,14 @@
 :root {
   --radius: 0.625rem;
   --background: #ffffff;
-  --foreground: #6e6e6e;
-  --card: #ffffff;
-  --card-foreground: #6e6e6e;
+  --foreground: #333333;
+  --card: #f3f4f6;
+  --card-foreground: #333333;
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.13 0.028 261.692);
   --primary: #000000;
   --primary-foreground: #090909;
-  --secondary: #6e6e6e;
+  --secondary: #6d6d6d;
   --secondary-foreground: oklch(0.21 0.034 264.665);
   --muted: #e1e1e1;
   --muted-foreground: oklch(0.551 0.027 264.364);
@@ -166,23 +166,39 @@
   }
 
   * {
-    @apply border-border outline-ring/50 selection:bg-blue-400;
+    @apply border-border outline-ring/50 selection:bg-blue-400 selection:text-white;
   }
 
   body {
-    @apply bg-primary-foreground;
+    @apply bg-primary-foreground text-foreground;
   }
 
   .large-currency {
     @apply font-extralight text-3xl text-primary;
   }
 
+  .space-grotesk-font {
+    font-family: var(--font-space-grotesk);
+  }
+
+  /* HEADINGS */
+
   .headerh2 {
     @apply text-xl font-normal;
   }
 
+  .bigHeading {
+    @apply text-5xl md:text-6xl font-normal text-foreground text-center;
+    font-family: var(--font-space-grotesk);
+  }
+
+  .heading {
+    @apply text-4xl md:text-5xl font-normal text-primary;
+    font-family: var(--font-space-grotesk);
+  }
+
   .button-style {
-    @apply rounded-lg cursor-pointer w-full  h-full max-w-[175px]  max-h-[45px] text-white font-semibold;
+    @apply rounded-lg cursor-pointer flex flex-row w-full  h-[60px] max-w-[200px]  text-white font-semibold text-lg;
   }
 
   button.default {

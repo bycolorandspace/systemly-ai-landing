@@ -16,7 +16,7 @@ export default function Logo() {
           height={50}
           className="object-contain"
         />
-        <span className="text-primary text-xl">Systemly</span>
+        <span className="text-primary text-xl ">Systemly</span>
       </Link>
     </div>
   );

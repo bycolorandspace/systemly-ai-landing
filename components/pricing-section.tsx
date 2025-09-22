@@ -8,7 +8,7 @@ export default function PricingTableSection({ plans }: { plans: Plan[] }) {
       className="flex flex-col items-center justify-center w-full max-w-6xl px-4 py-8 space-y-8 min-h-screen"
     >
       <h3 className="text-sm text-secondary mb-4 text-center">Pricing</h3>
-      <h2 className="text-4xl font-medium text-primary mb-8 text-center">
+      <h2 className="heading headerh2 mb-8 text-center">
         Simple, transparent pricing
       </h2>
       <div className="flex flex-col items-center space-y-4">

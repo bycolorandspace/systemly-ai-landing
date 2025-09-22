@@ -166,8 +166,8 @@ const FloatingDollarsBackground: React.FC<FloatingDollarsProps> = ({
       const viewportHeight = window.innerHeight;
 
       // Fade starts at 30% of screen height, completes at 100% screen height
-      const fadeStart = viewportHeight * 0.3;
-      const fadeEnd = viewportHeight;
+      const fadeStart = viewportHeight * 0.05;
+      const fadeEnd = viewportHeight * 0.4;
 
       let opacity = 1;
       if (scrollY > fadeStart) {
@@ -627,7 +627,7 @@ const FloatingDollarsBackground: React.FC<FloatingDollarsProps> = ({
       <div className={`fixed inset-0 pointer-events-none ${className}`}>
         <div className="flex items-center justify-center h-full">
           <div className="animate-spin duration-300">
-            <LoaderPinwheel className="text-primary" />{" "}
+            <LoaderPinwheel className="text-border" />{" "}
           </div>
         </div>
       </div>

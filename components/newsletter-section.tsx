@@ -89,11 +89,11 @@ export default function NewsletterSection() {
           </div>
         ) : (
           <div className="text-center space-y-4">
-            <h3 className="text-sm text-secondary  ">Systemly.ai newsletter</h3>
-            <h2 className="text-4xl font-medium text-primary  ">
+            <h3 className="text-sm text-secondary">Systemly.ai newsletter</h3>
+            <h2 className="heading headerh2">
               Join for updates, content & exclusives
             </h2>
-            <p className="max-w-xl text-secondary">
+            <p className="max-w-xl text-secondary mx-auto">
               Join 1000+ traders waiting for launch. Early users get lifetime
               50% discount and priority support. Limited spots available.
             </p>

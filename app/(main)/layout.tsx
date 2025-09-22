@@ -3,6 +3,7 @@ import {
   // Geist,
   // Geist_Mono
   Inter,
+  Space_Grotesk,
 } from "next/font/google";
 import "../globals.css";
 import { Toaster } from "@/components/ui/sonner";
@@ -16,6 +17,10 @@ import { Toaster } from "@/components/ui/sonner";
 //   variable: "--font-geist-mono",
 //   subsets: ["latin"],
 // });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk", // Optional: for CSS custom property
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -34,7 +39,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} font-inter    antialiased`}
+      >
         <div className="min-h-screen bg-white text-gray-900 landing">
           {children}
           <Toaster />

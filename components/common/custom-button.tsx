@@ -21,15 +21,15 @@ export default function CustomButton({
   color = "default",
   customClass,
 }: CTAButtonProps) {
-  const buttonClass = `button-style ${color && convertColors(color)} ${
-    customClass || ""
-  }`;
+  const buttonClass = `
+  rounded-lg cursor-pointer flex flex-row  h-[45px] w-[170px]  text-white hover:bg-accent hover:text-foreground font-semibold text-md
+  ${color && convertColors(color)} ${customClass}  `;
 
   return (
     <div className="flex justify-center items-center">
       {type === "button" && url ? (
         <Button className={buttonClass} type={type}>
-          <Link href={url} className={buttonClass}>
+          <Link href={url} className="text-white">
             {label}
           </Link>
         </Button>

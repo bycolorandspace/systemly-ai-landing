@@ -69,7 +69,7 @@ export default function SelectPairInput({
                 <ChevronDown className="text-secondary absolute right-2 top-1/2 transform -translate-y-1/2" />
               </SelectTrigger>
             </FormControl>
-            <SelectContent className="bg-border text-primary focus:text-primary">
+            <SelectContent className="bg-card text-primary focus:text-primary">
               {Object.entries(TRADABLE_ASSETS).map(([category, pairs]) => (
                 <div key={category}>
                   <div className="font-semibold text-xs uppercase px-2 py-1 text-secondary">

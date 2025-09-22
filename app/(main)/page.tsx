@@ -2,7 +2,6 @@
 import AboutSection from "@/components/About-section";
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
-import CTASection from "@/components/CTA-section";
 import FeaturesSection from "@/components/FeaturesSection";
 import FloatingDollarsBackground from "@/components/FloatingDollars";
 import HeroSection from "@/components/HeroSection";
@@ -100,8 +99,8 @@ export default function Home() {
       <FloatingDollarsBackground
         showControls={true}
         initialDollarCount={50}
-        initialFallSpeed={1.5}
-        initialWindStrength={0.8}
+        initialFallSpeed={2}
+        initialWindStrength={2}
         toggleBurst={toggleMoneyBurst}
       />
       <div className="flex flex-col items-center justify-start min-h-screen">
@@ -114,7 +113,7 @@ export default function Home() {
         <TradesDemoSection />
 
         {/* ABOUT */}
-        <AboutSection action={() => setToggleMoneyBurst(!toggleMoneyBurst)} />
+        <AboutSection />
 
         {/* Features */}
         <FeaturesSection features={features} />
@@ -129,7 +128,7 @@ export default function Home() {
         <NewsletterSection />
 
         {/* CTA Section */}
-        <CTASection />
+        {/* <CTASection /> */}
 
         {/* Footer */}
         <Footer />

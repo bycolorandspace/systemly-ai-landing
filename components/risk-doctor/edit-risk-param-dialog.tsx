@@ -476,8 +476,11 @@ export default function OpenEditParamDialog({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button variant={"ghost"} className="w-1">
-          <EllipsisVertical className="w-4 h-4 text-secondary" />
+        <Button
+          variant={"ghost"}
+          className="w-1 h-4 hover:bg-transparent hover:text-primary cursor-pointer"
+        >
+          <EllipsisVertical className="w-4 h-4 text-border hover:text-primary" />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
@@ -520,7 +523,7 @@ export default function OpenEditParamDialog({
                   </Button>
                 </DialogClose>
                 <Button
-                  className={`flex flex-row gap-2 justify-items-center cursor-pointer ${
+                  className={`flex flex-row gap-2 justify-items-center cursor-pointer text-white hover:text-white/70 ${
                     !isValid ? "opacity-50" : ""
                   }`}
                   type="submit"

@@ -9,6 +9,7 @@ import { Update_RiskCalculatorInputs } from "@/schema/risk-calculator-schema";
 import { CurrentCalcultorValues } from "@/types/calculator-types";
 import { Skeleton } from "../ui/skeleton";
 import { calculationData } from "../risk-doctor-results";
+import { formatCurrrencytoSymbol } from "@/helpers/format-currency";
 
 export default function CalculatorResultsTableRow({
   currentValues,
@@ -57,11 +58,11 @@ export default function CalculatorResultsTableRow({
             <TooltipTrigger className="tableData cursor-pointer">
               {calculations.id === "total-pnl" &&
                 calculations.value &&
-                accountCurrency}
+                formatCurrrencytoSymbol(accountCurrency)}
               {calculations.value ?? "-"}
             </TooltipTrigger>
             <TooltipContent>
-              <span className="text-xs text-muted-foreground">
+              <span className="text-xs text-muted-primary">
                 {calculations.toolTip}
               </span>
             </TooltipContent>
@@ -74,7 +75,7 @@ export default function CalculatorResultsTableRow({
               {calculations.value ?? "-"}
             </TooltipTrigger>
             <TooltipContent>
-              <span className="text-xs text-muted-foreground">
+              <span className="text-xs text-muted-primary">
                 {`${calculations.pips} pips | $${calculations.pnl} | Risk reward: ${calculations.rr}`}
               </span>
             </TooltipContent>
@@ -91,7 +92,7 @@ export default function CalculatorResultsTableRow({
               {calculations.value ?? "N/A"}
             </TooltipTrigger>
             <TooltipContent>
-              <span className="text-xs text-muted-foreground">
+              <span className="text-xs text-muted-primary">
                 {calculations.description}
               </span>
             </TooltipContent>

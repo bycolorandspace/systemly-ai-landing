@@ -1,5 +1,6 @@
 import { PAGES } from "@/data/links";
 import CTAButton from "./common/cta-button";
+import MoneyBurstButton from "./money-burst";
 
 export default function HeroSection({ action }: { action: () => void }) {
   return (
@@ -7,20 +8,17 @@ export default function HeroSection({ action }: { action: () => void }) {
       className="flex flex-col items-center justify-center px-8 min-h-screen"
       id="/#"
     >
-      <h1 className="text-6xl md:text-7xl font-normal text-primary mb-4 text-center">
-        Win more trades with AI
-      </h1>
-      <p className="text-lg text-secondary mb-8 text-center">
-        AI co-pilot you’ve been looking for to help you increase and maintain
-        your profit.
-      </p>
-      <div className="flex flex-row gap-8">
-        <CTAButton
-          label="Money burst 🤑"
-          action={action}
-          color="default"
-          customClass="text-white"
-        />
+      <div className="space-y-8">
+        <h1 className="bigHeading">AI trading Co-pilot for winners</h1>
+        <p className="text-lg text-primary font-normal mb-8 text-center">
+          AI co-pilot you’ve been looking for to help you increase and maintain
+          your profit.
+        </p>
+      </div>
+
+      <div className="flex flex-row gap-8 justify-start items-start">
+        <MoneyBurstButton action={action} />
+
         <CTAButton
           label="Get started"
           url={PAGES.getStarted}

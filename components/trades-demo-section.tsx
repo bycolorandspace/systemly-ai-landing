@@ -10,6 +10,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const TradesDemoSection = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
   const [emblaMainRef, emblaMainApi] = useEmblaCarousel(
     {
       loop: true,
@@ -18,6 +19,12 @@ const TradesDemoSection = () => {
     },
     [Autoplay({ delay: 4000, stopOnInteraction: true })]
   );
+
+  // Add this function to check if current item is centered
+  const isCenterItem = (itemIndex: number) => {
+    if (!emblaMainApi) return false;
+    return itemIndex === emblaMainApi.selectedScrollSnap();
+  };
 
   // Sample demo items
   const demoItems = [
@@ -108,21 +115,27 @@ const TradesDemoSection = () => {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center w-full max-w-6xl gap-20 px-0 py-8 mt-10 min-h-screen">
-      <div className="space-y-4">
-        <h2 className="text-4xl md:text-5xl font-medium text-primary text-center">
-          Generate Trade Ideas instantly
-        </h2>
+    <section
+      className="flex flex-col items-center justify-center w-full max-w-6xl gap-20 px-0  mt-[-130px] mb-20"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      {/* <div className="space-y-4">
+        <SectionHeader title="Generate winning ideas" />
         <p className=" text-secondary text-center max-w-3xl">
           Get AI-generated trade ideas with full analysis, potential PnL,
           auto-calculated risk, and more.
         </p>
-      </div>
+      </div> */}
 
       {/* Carousel Container */}
       <div className=" relative w-full max-w-6xl mx-auto">
         {/* Annotation Images */}
-        <div className="hidden md:flex max-w-[400px] w-full left-[50%] ml-[-200px] absolute z-100 pointer-events-none h-[300px]">
+        <div
+          className={`max-w-[400px] w-full left-[50%] ml-[-200px] absolute z-100 pointer-events-none h-[300px] ${
+            isHovering ? "opacity-100" : "opacity-0"
+          } transition-opacity duration-500`}
+        >
           <Image
             src={"images/AI-generated-idea.svg"}
             width={170}
@@ -156,7 +169,7 @@ const TradesDemoSection = () => {
         {/* Mobile View - Stack All Items */}
         <div className="flex md:hidden flex-col gap-6 justify-center items-center mx-4">
           {demoItems.map((trade, index) => (
-            <div className="w-full max-w-[400px]" key={index}>
+            <div className="w-full max-w-[360px]" key={index}>
               <AnalysisSummarisedAlt
                 key={trade.id}
                 data={trade.data}
@@ -180,7 +193,7 @@ const TradesDemoSection = () => {
                   )}`}
                   style={{ opacity: getItemOpacity(index) }}
                 >
-                  <div className="w-full max-w-[400px] mx-auto">
+                  <div className="w-full max-w-[360px] mx-auto">
                     <AnalysisSummarisedAlt
                       key={trade.id}
                       data={trade.data}
