@@ -43,7 +43,9 @@ export default function FormStep({ step }: { step: Step }) {
     setValue(step.category, option.value, { shouldValidate: true });
     setCurrentValue(option.text);
     console.log("Show form values: ", getValues());
-    nextQuestion();
+    setTimeout(() => {
+      nextQuestion();
+    }, 500);
   };
 
   if (step.input === "radio") {

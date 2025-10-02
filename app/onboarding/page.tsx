@@ -105,6 +105,7 @@ export default function OnboardingPage() {
             stepIndex={stepIndex}
             totalQuestions={totalQuestions}
             enableNext={onboarding.steps[stepIndex].input !== "radio"}
+            enableSubmit={methods.formState.isValid}
             next={nextQuestion}
             prev={prevQuestion}
           />
@@ -117,9 +118,9 @@ export default function OnboardingPage() {
 const RenderStep = (step: Step) => {
   const { register } = useFormContext();
   return (
-    <div className="  w-full max-w-5xl mx-auto ">
+    <div className="  w-full max-w-5xl mx-auto h-auto mb-20">
       {/* Step meta */}
-      <div className="flex  flex-col max-w-2xl gap-8 mb-4 mx-auto">
+      <div className="flex  flex-col max-w-4xl gap-6 mb-4 mx-auto">
         <h1 className="heading">{step.title}</h1>
         <p className="text-xl text-primary ">{step.subtitle}</p>
         <p className=" text-lg text-secondary ">{step.description}</p>
@@ -159,10 +160,12 @@ const RenderStep = (step: Step) => {
                         {
                           field.type === "text" ? (
                             <div className="flex flex-col gap-4">
-                              <Label htmlFor={field.name}>{field.label}</Label>
+                              <Label className="text-xl" htmlFor={field.name}>
+                                {field.label}
+                              </Label>
                               <Input
                                 id={field.name}
-                                className="w-full border-secondary border-1 shadow-none py-5"
+                                className="w-full border-primary border-2 shadow-none py-5 text-primary space-grotesk-font"
                                 placeholder={field.placeholder}
                                 {...(field.required ? { required: true } : {})}
                                 {...register(
@@ -172,10 +175,12 @@ const RenderStep = (step: Step) => {
                             </div>
                           ) : field.type === "email" ? (
                             <div className="flex flex-col gap-4">
-                              <Label htmlFor={field.name}>{field.label}</Label>
+                              <Label className="text-xl" htmlFor={field.name}>
+                                {field.label}
+                              </Label>
                               <Input
                                 type="email"
-                                className="w-full border-secondary border-1 shadow-none py-5"
+                                className="w-full border-primary border-2 shadow-none py-5 text-primary space-grotesk-font"
                                 id={field.name}
                                 placeholder={field.placeholder}
                                 {...(field.required ? { required: true } : {})}
@@ -186,9 +191,11 @@ const RenderStep = (step: Step) => {
                             </div>
                           ) : field.type === "select" ? (
                             <div className="flex flex-col gap-4">
-                              <Label htmlFor={field.name}>{field.label}</Label>
+                              <Label className="text-xl" htmlFor={field.name}>
+                                {field.label}
+                              </Label>
                               <Select>
-                                <SelectTrigger className="w-full md:max-w-[250px] border-secondary border-1 shadow-none py-5">
+                                <SelectTrigger className="w-full md:max-w-[250px] border-primary border-2 shadow-none py-5 text-primary space-grotesk-font">
                                   <SelectValue placeholder={field.label} />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -224,21 +231,23 @@ const RenderStep = (step: Step) => {
                   return (
                     <div
                       key={index}
-                      className="w-full bg-primary p-3 flex flex-row gap-2 text-left text-md text-background  rounded-lg"
+                      className="relative max-w-[85%] ml-auto animate-messageSlideIn"
+                      style={{ animationDelay: `${index * 150}ms` }}
                     >
-                      <span
-                        className={`${
-                          option.value &&
-                          `bg-primary rounded-full h-4 w-4 flex justify-center items-center p-4`
-                        }`}
-                      >
-                        {option.emoji && option.emoji}
-                      </span>{" "}
-                      <div>
-                        <span>{option.text}</span>{" "}
-                        <span className="text-sm font-light text-secondary">
-                          {option.value && ` - 4 ${option.value}`}{" "}
+                      <div className="bg-[#007AFF] px-4 py-2.5 flex flex-row gap-2 text-left text-[15px] text-white rounded-[20px] rounded-br-[4px] shadow-[0_1px_2px_rgba(0,0,0,0.1)]">
+                        <span className={"mr-2 text-3xl"}>
+                          {option.emoji && option.emoji}
                         </span>
+                        <div className="flex flex-col">
+                          <span className="text-lg leading-[1.4]">
+                            {option.text}
+                          </span>
+                          {option.value && (
+                            <span className="text-sm font-normal text-white/80 mt-0.5">
+                              {option.value}
+                            </span>
+                          )}
+                        </div>
                       </div>
                     </div>
                   );

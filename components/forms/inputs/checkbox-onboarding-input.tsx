@@ -88,45 +88,45 @@ export default function CheckBoxOnboardingInput({
                 return (
                   <FormItem
                     key={option}
-                    className="w-full h-auto flex flex-row gap-4 justify-start items-center rounded-xl mb-4 px-6 py-8  font-bold bg-card text-left text-primary text-lg cursor-pointer hover:bg-gray-200"
+                    className="w-full h-auto rounded-xl mb-4 font-bold bg-card text-primary text-lg"
                   >
-                    <FormControl>
-                      <Checkbox
-                        className="border border-boder bg-background"
-                        checked={
-                          Array.isArray(field.value) &&
-                          field.value.includes(option)
-                        }
-                        onCheckedChange={(checked) => {
-                          // Ensure field.value is an array
-                          const currentValue = Array.isArray(field.value)
-                            ? field.value
-                            : [];
-                          if (checked) {
-                            // If maxSelections is defined and we're at the limit
-                            if (
-                              maxSelections &&
-                              currentValue.length >= maxSelections
-                            ) {
-                              return field.onChange([
-                                ...currentValue.slice(1),
-                                option,
-                              ]);
-                            }
-                            return field.onChange([...currentValue, option]);
-                          } else {
-                            return field.onChange(
-                              currentValue.filter(
-                                (value: string) => value !== option
-                              )
-                            );
+                    <label className="flex flex-row gap-4 justify-start items-center px-6 py-8 cursor-pointer hover:bg-gray-200 rounded-xl">
+                      <FormControl>
+                        <Checkbox
+                          className="border border-border bg-background"
+                          checked={
+                            Array.isArray(field.value) &&
+                            field.value.includes(option)
                           }
-                        }}
-                      />
-                    </FormControl>
-                    <FormLabel className="font-bold bg-card text-left text-primary text-lg">
-                      {option}
-                    </FormLabel>
+                          onCheckedChange={(checked) => {
+                            const currentValue = Array.isArray(field.value)
+                              ? field.value
+                              : [];
+                            if (checked) {
+                              if (
+                                maxSelections &&
+                                currentValue.length >= maxSelections
+                              ) {
+                                return field.onChange([
+                                  ...currentValue.slice(1),
+                                  option,
+                                ]);
+                              }
+                              return field.onChange([...currentValue, option]);
+                            } else {
+                              return field.onChange(
+                                currentValue.filter(
+                                  (value: string) => value !== option
+                                )
+                              );
+                            }
+                          }}
+                        />
+                      </FormControl>
+                      <span className="font-bold text-left text-primary text-lg">
+                        {option}
+                      </span>
+                    </label>
                   </FormItem>
                 );
               }}

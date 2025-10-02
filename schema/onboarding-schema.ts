@@ -10,6 +10,9 @@ export const OnboardingSchema = z.object({
   current_tools: z
     .array(z.string())
     .min(1, "Please select at least one current tool"),
+  copy_trading_experience: z
+    .string()
+    .min(1, "Please select how you get trade ideas"),
   willingness_to_pay: z.string().min(1, "Please select a price range"),
 
   // Required form fields (only for final submission)

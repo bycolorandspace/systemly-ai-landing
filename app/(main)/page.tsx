@@ -3,7 +3,7 @@ import AboutSection from "@/components/About-section";
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
 import FeaturesSection from "@/components/FeaturesSection";
-import FloatingDollarsBackground from "@/components/FloatingDollars";
+//import FloatingDollarsBackground from "@/components/FloatingDollars";
 import HeroSection from "@/components/HeroSection";
 import NewsletterSection from "@/components/newsletter-section";
 import PricingTableSection from "@/components/pricing-section";
@@ -92,22 +92,22 @@ export default function Home() {
   // const { user, isAuthenticated } = useAuth();
   // const router = Router.useRouter();
 
-  const [toggleMoneyBurst, setToggleMoneyBurst] = React.useState(false);
+  //  const [toggleMoneyBurst, setToggleMoneyBurst] = React.useState(false);
 
   return (
     <>
-      <FloatingDollarsBackground
+      {/* <FloatingDollarsBackground
         showControls={true}
         initialDollarCount={50}
         initialFallSpeed={2}
         initialWindStrength={2}
         toggleBurst={toggleMoneyBurst}
-      />
+      /> */}
       <div className="flex flex-col items-center justify-start min-h-screen">
         {/* HEADER */}
         <Header />
         {/* HERO  */}
-        <HeroSection action={() => setToggleMoneyBurst(!toggleMoneyBurst)} />
+        <HeroSection />
 
         {/* DEMO */}
         <TradesDemoSection />

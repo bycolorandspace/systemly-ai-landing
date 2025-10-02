@@ -447,6 +447,249 @@ const onboardingFlow: OnboardingFlow = {
       id: 6,
       type: "question",
       input: "radio",
+      category: "copy_trading_experience",
+      title: "Here's the real question - how do you get your trade ideas?",
+      subtitle: null,
+      description: "Be honest, we've all been there",
+      image: {
+        url: "/images/trade-ideas-sources.jpg",
+        alt: "Various sources of trading ideas and signals",
+        size: "medium",
+      },
+      content: {
+        headline: null,
+        body: null,
+        cta: null,
+      },
+      dataCollection: {
+        fieldName: "copy_trading_experience",
+        fieldType: "single_select",
+        validation: "required",
+      },
+      metadata: {
+        marketInsight:
+          "Copy trading segment size and pain points for competitive positioning",
+        required: true,
+      },
+      options: [
+        {
+          id: "active_copy_trader",
+          text: "I copy other traders - following signals from pros or platforms",
+          emoji: "👥",
+          value: "active_copy_trader",
+          followUp:
+            "Interesting! How's that working out for you? (Spoiler: we know it's complicated)",
+          image: {
+            url: "/images/copy-trading-active.jpg",
+            alt: "Person following trading signals on multiple screens",
+            size: "small",
+          },
+          metadata: {
+            segment: "copy_trader",
+            painPoints: ["blind_following", "delayed_signals", "no_context"],
+            tags: [
+              "copy_trading_user",
+              "signal_follower",
+              "high_conversion_potential",
+            ],
+          },
+        },
+        {
+          id: "tried_copy_trading",
+          text: "Tried copy trading before - mixed results, looking for something better",
+          emoji: "🤔",
+          value: "tried_copy_trading",
+          followUp:
+            "The 'been burned' club - welcome! You're exactly who we built this for",
+          image: {
+            url: "/images/frustrated-copy-trader.jpg",
+            alt: "Trader disappointed with copy trading results",
+            size: "small",
+          },
+          metadata: {
+            segment: "burned_copy_trader",
+            painPoints: [
+              "losses_from_copying",
+              "lack_of_understanding",
+              "no_risk_control",
+            ],
+            tags: [
+              "ready_for_alternative",
+              "educated_by_experience",
+              "high_intent",
+            ],
+          },
+        },
+        {
+          id: "manual_analysis",
+          text: "Do my own analysis - charts, news, fundamentals, the whole thing",
+          emoji: "📊",
+          value: "manual_analysis",
+          followUp:
+            "The DIY approach - respect! But wouldn't a second opinion help?",
+          image: {
+            url: "/images/independent-trader-analysis.jpg",
+            alt: "Trader doing comprehensive manual analysis",
+            size: "small",
+          },
+          metadata: {
+            segment: "independent_trader",
+            painPoints: [
+              "time_consuming",
+              "second_guessing",
+              "information_overload",
+            ],
+            tags: ["self_sufficient", "analytical", "values_confirmation"],
+          },
+        },
+        {
+          id: "mix_of_both",
+          text: "Mix of both - I follow some signals but verify with my own analysis",
+          emoji: "⚖️",
+          value: "mix_of_both",
+          followUp:
+            "Smart! Trust but verify. AI can supercharge this exact approach",
+          image: {
+            url: "/images/hybrid-trader-approach.jpg",
+            alt: "Trader balancing signals with personal analysis",
+            size: "small",
+          },
+          metadata: {
+            segment: "hybrid_trader",
+            painPoints: [
+              "time_intensive",
+              "conflicting_signals",
+              "decision_fatigue",
+            ],
+            tags: ["balanced_approach", "experienced", "optimization_focused"],
+          },
+        },
+        {
+          id: "signal_services",
+          text: "Pay for premium signals/alerts from signal providers or Discord groups",
+          emoji: "💳",
+          value: "signal_services",
+          followUp:
+            "Paying for signals that might be too late? We feel that pain",
+          image: {
+            url: "/images/premium-signals-subscription.jpg",
+            alt: "Premium trading signal service dashboard",
+            size: "small",
+          },
+          metadata: {
+            segment: "signal_subscriber",
+            painPoints: [
+              "expensive",
+              "delayed_execution",
+              "no_personalization",
+            ],
+            tags: ["paying_customer", "signal_dependent", "ready_to_switch"],
+          },
+        },
+        {
+          id: "winging_it",
+          text: "Honestly? Just winging it and hoping for the best",
+          emoji: "🎲",
+          value: "winging_it",
+          followUp:
+            "Raw honesty! At least you know you need a system - that's step one",
+          image: {
+            url: "/images/random-trading-approach.jpg",
+            alt: "Trader making random decisions without system",
+            size: "small",
+          },
+          metadata: {
+            segment: "unstructured_trader",
+            painPoints: [
+              "no_system",
+              "inconsistent_results",
+              "gambling_mentality",
+            ],
+            tags: [
+              "needs_structure",
+              "high_education_need",
+              "beginner_mindset",
+            ],
+          },
+        },
+      ],
+    },
+
+    {
+      id: 7,
+      type: "content",
+      input: null,
+      category: "copy_trading_reality",
+      title: "💡 The truth about copy trading (that nobody talks about)",
+      subtitle: "Why Following Others' Trades Usually Fails",
+      description: "Here's what the copy trading platforms won't tell you...",
+      image: {
+        url: "/images/copy-trading-reality-check.jpg",
+        alt: "The hidden problems with copy trading revealed",
+        size: "large",
+      },
+      content: {
+        headline: null,
+        body: null,
+        cta: null,
+      },
+      dataCollection: null,
+      metadata: {
+        marketInsight: null,
+        required: false,
+      },
+      options: [
+        {
+          id: "insight_1",
+          text: "78% of copy traders lose money because they don't understand the trades they're copying",
+          emoji: "📉",
+          value: null,
+          followUp: null,
+          image: null,
+          metadata: {
+            type: "insight_point",
+          },
+        },
+        {
+          id: "insight_2",
+          text: "Signal delay costs you 15-30% of potential profit - you're always trading yesterday's idea",
+          emoji: "⏰",
+          value: null,
+          followUp: null,
+          image: null,
+          metadata: {
+            type: "insight_point",
+          },
+        },
+        {
+          id: "insight_3",
+          text: "Our AI generates fresh trade ideas tailored to YOUR risk tolerance and account size",
+          emoji: "🤖",
+          value: null,
+          followUp: null,
+          image: null,
+          metadata: {
+            type: "insight_point",
+          },
+        },
+        {
+          id: "insight_4",
+          text: "You get the 'why' behind every trade - learn while you earn, not just blind following",
+          emoji: "🎓",
+          value: null,
+          followUp: null,
+          image: null,
+          metadata: {
+            type: "insight_point",
+          },
+        },
+      ],
+    },
+
+    {
+      id: 8,
+      type: "question",
+      input: "radio",
       category: "trading_goals",
       title: "What's your trading endgame? (Be honest, we've heard it all)",
       subtitle: null,
@@ -576,7 +819,7 @@ const onboardingFlow: OnboardingFlow = {
     },
 
     {
-      id: 7,
+      id: 9,
       type: "content",
       input: null,
       category: "goals_response",
@@ -648,7 +891,7 @@ const onboardingFlow: OnboardingFlow = {
     },
 
     {
-      id: 8,
+      id: 10,
       type: "question",
       input: "radio",
       category: "biggest_challenge",
@@ -763,7 +1006,7 @@ const onboardingFlow: OnboardingFlow = {
     },
 
     {
-      id: 9,
+      id: 11,
       type: "question",
       input: "multi_select",
       category: "current_tools",
@@ -874,7 +1117,7 @@ const onboardingFlow: OnboardingFlow = {
     },
 
     {
-      id: 10,
+      id: 12,
       type: "question",
       input: "radio",
       category: "willingness_to_pay",

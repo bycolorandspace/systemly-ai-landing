@@ -1,10 +1,10 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "../ui/button";
-
 interface formNavProps {
   stepIndex: number;
   totalQuestions: number;
   enableNext?: boolean;
+  enableSubmit: boolean;
   formId?: string;
   next: () => void;
   prev: () => void;
@@ -14,6 +14,7 @@ export default function FormNavigation({
   stepIndex,
   totalQuestions,
   enableNext,
+  enableSubmit,
   formId,
   next,
   prev,
@@ -25,10 +26,10 @@ export default function FormNavigation({
         type="button"
         className={`${
           stepIndex > 0 ? "block" : "opacity-0"
-        } w-auto px-1 text-accent hover:text-primary bg-transparent hover:bg-transparent shadow-none cursor-pointer `}
+        } flex flex-row w-auto px-1 text-accent hover:text-primary bg-transparent hover:bg-transparent shadow-none cursor-pointer `}
         size="lg"
       >
-        <ArrowLeft width={52} height={52} className="w-[50px] h-[50px]" />
+        <ArrowLeft className="w-6 h-6" /> <span>Back</span>
       </Button>
 
       <span
@@ -45,7 +46,7 @@ export default function FormNavigation({
         className={`${
           (!enableNext && "hidden") ||
           (stepIndex === totalQuestions - 1 && `hidden`)
-        } w-full max-w-[110px] lg:max-w-[150px] px-6 text-background cursor-pointer`}
+        } w-full max-w-[110px] lg:max-w-[90px] px-4 text-background cursor-pointer`}
         size="lg"
       >
         Continue
@@ -54,12 +55,14 @@ export default function FormNavigation({
       <Button
         type="submit"
         form={formId}
+        disabled={enableSubmit ? false : true}
         className={`${
           stepIndex === totalQuestions - 1 ? "block" : "hidden"
-        } w-full max-w-[110px] lg:max-w-[150px] px-6 text-background cursor-pointer`}
+        } flex flex-row justify-between w-full max-w-[90px] lg:max-w-[150px] px-4 text-background cursor-pointer`}
         size="lg"
       >
         Submit
+        <ArrowRight className="w-6 h-6" />
       </Button>
     </div>
   );
