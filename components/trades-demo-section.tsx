@@ -128,21 +128,6 @@ const TradesDemoSection = ({ content }: { content: TradeCardsSectionType }) => {
 
       {/* Carousel Container */}
       <div className=" relative w-full max-w-6xl mx-auto">
-        {/* Mobile View - Stack All Items */}
-        <div className="flex md:hidden flex-col gap-6 justify-center items-center mx-4">
-          {demoItems.map((trade, index) => (
-            <div className="w-full max-w-[360px]" key={index}>
-              <AnalysisSummarisedAlt
-                key={trade.id}
-                data={trade.data}
-                created_at={trade.created_at}
-                accountCurrency={trade.accountCurrency}
-                pnl={trade.pnl}
-              />
-            </div>
-          ))}
-        </div>
-
         {/* Desktop Carousel */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-4 relative">
           {/* Annotation Images */}
@@ -180,14 +165,33 @@ const TradesDemoSection = ({ content }: { content: TradeCardsSectionType }) => {
             />
           </div>
           {/* Text Section */}
-          <div className="flex flex-col gap-8 px-4">
-            <div className="space-y-4">
-              <h3 className="text-sm text-secondary mb-4">Demo</h3>
-              <h2 className="heading max-w-xl">{title}</h2>
+          <div className="flex flex-col gap-8 px-4 w-full justify-center">
+            <div className="space-y-4 w-full flex flex-col justify-center items-center md:items-start">
+              <h3 className="text-sm text-secondary mb-4 text-center md:text-left">
+                Demo
+              </h3>
+              <h2 className="heading max-w-xl text-center md:text-left">
+                {title}
+              </h2>
             </div>
             <p className="text-lg text-primary text-center md:text-left mx-auto ">
               {subtext}
             </p>
+          </div>
+
+          {/* Mobile View - Stack All Items */}
+          <div className="flex md:hidden flex-col gap-6 justify-center items-center mx-4">
+            {demoItems.map((trade, index) => (
+              <div className="w-full max-w-[360px]" key={index}>
+                <AnalysisSummarisedAlt
+                  key={trade.id}
+                  data={trade.data}
+                  created_at={trade.created_at}
+                  accountCurrency={trade.accountCurrency}
+                  pnl={trade.pnl}
+                />
+              </div>
+            ))}
           </div>
           {/* Slider */}
           <div className="hidden md:flex flex-col justify-center items-center w-full relative overflow-hidden">
