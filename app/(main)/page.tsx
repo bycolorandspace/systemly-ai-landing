@@ -1,16 +1,23 @@
 "use client";
-import AboutSection from "@/components/About-section";
+import { AboutSection } from "@/components/About-section";
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
 import FeaturesSection from "@/components/FeaturesSection";
 //import FloatingDollarsBackground from "@/components/FloatingDollars";
-import HeroSection from "@/components/HeroSection";
+import { HeroSection } from "@/components/HeroSection";
 import NewsletterSection from "@/components/newsletter-section";
 import PricingTableSection from "@/components/pricing-section";
 import TestimonialsSection from "@/components/testimonials-section";
 import TradesDemoSection from "@/components/trades-demo-section";
-import { PAGES } from "@/data/links";
-import { Plan, Testimonial } from "@/types/general-types";
+import {
+  ABOUT,
+  FEATURES,
+  HERO,
+  NEWSLETTER,
+  PRICING,
+  TESTIMONIALS,
+  TRADE_CARDS_SECTION,
+} from "@/data/site-copy";
 import React from "react";
 
 // WE ARE BEHIND YOU.
@@ -18,75 +25,6 @@ import React from "react";
 // GODSPEED, TRADER
 // LOCK IN, YOUNG RENEGADE
 // LIVE TO SEE ANOTHER DAY
-
-const features = [
-  {
-    iconPath: "/images/icons/traffic-lights.svg",
-    title: "Auto-Risk management",
-    description:
-      "AI-powered protection for your capital. Automatically calculates position sizes, monitors volatility, and maintains your risk parameters.",
-  },
-  {
-    iconPath: "/images/icons/lightning-bolt.svg",
-    title: "AI Chart Analysis",
-    description:
-      "Advanced AI algorithms analyze charts like a seasoned pro, providing you with accurate insights and predictions.",
-  },
-  {
-    iconPath: "/images/icons/knight.svg",
-    title: "Real-time Alerts",
-    description:
-      "Get instant notifications on market movements and trade opportunities, ensuring you never miss a chance to profit.",
-  },
-  // Add more features as needed
-];
-
-const testimonials: Testimonial[] = [
-  {
-    description:
-      "Finally stopped revenge trading. Systemly keeps me disciplined and my win rate has jumped to 71%.",
-    name: "Michael A",
-    title: "Day Trader",
-  },
-  {
-    description:
-      "The risk management alone saved me from three potential account-killers last month.",
-    name: "Sarah K.",
-    title: "Swing Trader",
-  },
-  {
-    description:
-      "Systemly's AI analysis is like having a seasoned trader by my side. My confidence has skyrocketed.",
-    name: "John D.",
-    title: "Forex Trader",
-  },
-];
-
-const plans: Plan[] = [
-  {
-    name: "Standard",
-    description: "Perfect for individual traders.",
-    price: { billedMonthly: "$14.99", billedAnnually: "$12.99" },
-    features: [
-      "AI Chart Analysis",
-      "Real-time Alerts",
-      "Basic Risk Management",
-    ],
-    link: PAGES.getStarted,
-  },
-  {
-    name: "Pro",
-    description: "For serious traders who want more.",
-    price: { billedMonthly: "$49.99", billedAnnually: "$39.99" },
-    features: [
-      "All Standard features",
-      "Advanced Risk Management",
-      "Priority Support",
-      "Custom Alerts",
-    ],
-    link: PAGES.getStarted,
-  },
-];
 
 export default function Home() {
   // const { user, isAuthenticated } = useAuth();
@@ -107,25 +45,25 @@ export default function Home() {
         {/* HEADER */}
         <Header />
         {/* HERO  */}
-        <HeroSection />
+        <HeroSection content={HERO} />
 
         {/* DEMO */}
-        <TradesDemoSection />
+        <TradesDemoSection content={TRADE_CARDS_SECTION} />
 
         {/* ABOUT */}
-        <AboutSection />
+        <AboutSection content={ABOUT} />
 
         {/* Features */}
-        <FeaturesSection features={features} />
+        <FeaturesSection content={FEATURES} />
 
         {/* Testimonials */}
-        <TestimonialsSection data={testimonials} />
+        <TestimonialsSection content={TESTIMONIALS} />
 
         {/* Price */}
-        <PricingTableSection plans={plans} />
+        <PricingTableSection content={PRICING} />
 
         {/* Newsletter */}
-        <NewsletterSection />
+        <NewsletterSection content={NEWSLETTER} />
 
         {/* CTA Section */}
         {/* <CTASection /> */}

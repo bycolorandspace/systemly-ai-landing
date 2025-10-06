@@ -6,11 +6,12 @@ import tradePlans from "@/data/dummy-trade-plan";
 import Image from "next/image";
 import AnalysisSummarisedAlt from "./trades/analysis-summarised-alt";
 
-import { ChevronLeft, ChevronRight } from "lucide-react";
+// import { ChevronLeft, ChevronRight } from "lucide-react";
+import { TradeCardsSectionType } from "@/types/site-copy-types";
 
-const TradesDemoSection = () => {
+const TradesDemoSection = ({ content }: { content: TradeCardsSectionType }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [isHovering, setIsHovering] = useState(false);
+  // const [isHovering, setIsHovering] = useState(false);
   const [emblaMainRef, emblaMainApi] = useEmblaCarousel(
     {
       loop: true,
@@ -19,6 +20,7 @@ const TradesDemoSection = () => {
     },
     [Autoplay({ delay: 4000, stopOnInteraction: true })]
   );
+  const { title, subtext } = content;
 
   // Add this function to check if current item is centered
 
@@ -112,9 +114,9 @@ const TradesDemoSection = () => {
 
   return (
     <section
-      className="flex flex-col items-center justify-center w-full max-w-6xl gap-20 px-0  mt-[-130px] mb-20"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
+      className="flex flex-col items-center justify-center w-full max-w-6xl gap-20 px-0  mt-[-80px] mb-20"
+      // onMouseEnter={() => setIsHovering(true)}
+      // onMouseLeave={() => setIsHovering(false)}
     >
       {/* <div className="space-y-4">
         <SectionHeader title="Generate winning ideas" />
@@ -126,42 +128,6 @@ const TradesDemoSection = () => {
 
       {/* Carousel Container */}
       <div className=" relative w-full max-w-6xl mx-auto">
-        {/* Annotation Images */}
-        <div
-          className={`max-w-[400px] w-full left-[50%] ml-[-200px] absolute z-100 pointer-events-none h-[300px] ${
-            isHovering ? "opacity-100" : "opacity-0"
-          } transition-opacity duration-500`}
-        >
-          <Image
-            src={"images/AI-generated-idea.svg"}
-            width={170}
-            height={50}
-            alt="AI Generated Idea"
-            className="absolute top-[-35px] left-[-40px]"
-          />
-          <Image
-            src={"images/Potential-pnl.svg"}
-            width={140}
-            height={50}
-            alt="Potential PnL"
-            className="absolute top-[-32px] right-[-81px]"
-          />
-          <Image
-            src={"images/Auto-risk-calculation.svg"}
-            width={137}
-            height={37}
-            alt="Auto Risk Calculation"
-            className="absolute top-[160px] right-[-110px]"
-          />
-          <Image
-            src={"images/Full-analysis.svg"}
-            width={115}
-            height={55}
-            alt="Full Analysis"
-            className="absolute top-[200px] left-[-81px]"
-          />
-        </div>
-
         {/* Mobile View - Stack All Items */}
         <div className="flex md:hidden flex-col gap-6 justify-center items-center mx-4">
           {demoItems.map((trade, index) => (
@@ -178,58 +144,105 @@ const TradesDemoSection = () => {
         </div>
 
         {/* Desktop Carousel */}
-        <div className="hidden md:flex flex-col justify-center items-center w-full relative overflow-hidden">
-          <div className="overflow-hidden" ref={emblaMainRef}>
-            <div className="flex">
-              {demoItems.map((trade, index) => (
-                <div
-                  key={index}
-                  className={`flex-[0_0_33.333%] min-w-0 pl-4 transition-all duration-500 ${getItemBlur(
-                    index
-                  )}`}
-                  style={{ opacity: getItemOpacity(index) }}
-                >
-                  <div className="w-full max-w-[360px] mx-auto">
-                    <AnalysisSummarisedAlt
-                      key={trade.id}
-                      data={trade.data}
-                      created_at={trade.created_at}
-                      accountCurrency={trade.accountCurrency}
-                      pnl={trade.pnl}
-                    />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-4 relative">
+          {/* Annotation Images */}
+          <div
+            className={`max-w-[400px] w-full right-[80px] top-[20px] absolute z-100 pointer-events-none h-[300px] opacity-100 
+              transition-opacity duration-500 hidden lg:block`}
+          >
+            <Image
+              src={"images/AI-generated-idea.svg"}
+              width={170}
+              height={50}
+              alt="AI Generated Idea"
+              className="absolute top-[-35px] left-[-40px]"
+            />
+            <Image
+              src={"images/Potential-pnl.svg"}
+              width={140}
+              height={50}
+              alt="Potential PnL"
+              className="absolute top-[-32px] right-[-81px]"
+            />
+            <Image
+              src={"images/Auto-risk-calculation.svg"}
+              width={137}
+              height={37}
+              alt="Auto Risk Calculation"
+              className="absolute top-[160px] right-[-110px]"
+            />
+            <Image
+              src={"images/Full-analysis.svg"}
+              width={115}
+              height={55}
+              alt="Full Analysis"
+              className="absolute top-[200px] left-[-81px]"
+            />
+          </div>
+          {/* Text Section */}
+          <div className="flex flex-col gap-8 px-4">
+            <div className="space-y-4">
+              <h3 className="text-sm text-secondary mb-4">Demo</h3>
+              <h2 className="heading max-w-xl">{title}</h2>
+            </div>
+            <p className="text-lg text-primary text-center md:text-left mx-auto ">
+              {subtext}
+            </p>
+          </div>
+          {/* Slider */}
+          <div className="hidden md:flex flex-col justify-center items-center w-full relative overflow-hidden">
+            <div className="overflow-hidden" ref={emblaMainRef}>
+              <div className="flex">
+                {demoItems.map((trade, index) => (
+                  <div
+                    key={index}
+                    className={`flex-[0_0_33.333%] min-w-0 pl-4 transition-all duration-500 ${getItemBlur(
+                      index
+                    )}`}
+                    style={{ opacity: getItemOpacity(index) }}
+                  >
+                    <div className="w-full max-w-[360px] mx-auto">
+                      <AnalysisSummarisedAlt
+                        key={trade.id}
+                        data={trade.data}
+                        created_at={trade.created_at}
+                        accountCurrency={trade.accountCurrency}
+                        pnl={trade.pnl}
+                      />
+                    </div>
                   </div>
-                </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Navigation Buttons */}
+            {/* <div className="flex justify-between gap-4 w-full max-w-3xl mx-auto absolute">
+              <button
+                onClick={() => emblaMainApi?.scrollPrev()}
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-colors"
+              >
+                <ChevronLeft className="w-10 h-10" />
+              </button>
+              <button
+                onClick={() => emblaMainApi?.scrollNext()}
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-colors"
+              >
+                <ChevronRight className="w-10 h-10" />
+              </button>
+            </div> */}
+
+            {/* Dot indicators */}
+            <div className="flex justify-center gap-2 mt-4">
+              {demoItems.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => emblaMainApi?.scrollTo(index)}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    index === selectedIndex ? "bg-primary" : "bg-primary/30"
+                  }`}
+                />
               ))}
             </div>
-          </div>
-
-          {/* Navigation Buttons */}
-          <div className="flex justify-between gap-4 w-full max-w-3xl mx-auto absolute">
-            <button
-              onClick={() => emblaMainApi?.scrollPrev()}
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-colors"
-            >
-              <ChevronLeft className="w-10 h-10" />
-            </button>
-            <button
-              onClick={() => emblaMainApi?.scrollNext()}
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-colors"
-            >
-              <ChevronRight className="w-10 h-10" />
-            </button>
-          </div>
-
-          {/* Dot indicators */}
-          <div className="flex justify-center gap-2 mt-4">
-            {demoItems.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => emblaMainApi?.scrollTo(index)}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  index === selectedIndex ? "bg-primary" : "bg-primary/30"
-                }`}
-              />
-            ))}
           </div>
         </div>
       </div>

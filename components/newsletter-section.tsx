@@ -10,8 +10,14 @@ import {
   NewsletterValues,
 } from "@/schema/newsletter-schema";
 import { useState } from "react";
+import { NewsletterSectionType } from "@/types/site-copy-types";
 
-export default function NewsletterSection() {
+export default function NewsletterSection({
+  content,
+}: {
+  content: NewsletterSectionType;
+}) {
+  const { title, subheader, description, privacyNote } = content;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
   const [error, setError] = useState("");
@@ -89,14 +95,9 @@ export default function NewsletterSection() {
           </div>
         ) : (
           <div className="text-center space-y-4">
-            <h3 className="text-sm text-secondary">Systemly.ai newsletter</h3>
-            <h2 className="heading headerh2">
-              Join for updates, content & exclusives
-            </h2>
-            <p className="max-w-xl text-secondary mx-auto">
-              Join 1000+ traders waiting for launch. Early users get lifetime
-              50% discount and priority support. Limited spots available.
-            </p>
+            <h3 className="text-sm text-secondary">{subheader}</h3>
+            <h2 className="heading headerh2">{title}</h2>
+            <p className="max-w-xl text-secondary mx-auto">{description}</p>
           </div>
         )}
 
@@ -127,9 +128,7 @@ export default function NewsletterSection() {
           {/* <form className="flex flex-col items-center space-y-4">
             
           </form> */}
-          <p className="text-sm text-secondary mt-4">
-            We respect your privacy. Unsubscribe at any time.
-          </p>
+          <p className="text-sm text-secondary mt-4">{privacyNote}</p>
         </div>
         {/* Socials */}
         <Socials />

@@ -159,6 +159,7 @@
 
   html {
     scroll-behavior: smooth;
+    background: #ffffff;
   }
 
   .landing body {
@@ -166,11 +167,11 @@
   }
 
   * {
-    @apply border-border outline-ring/50 selection:bg-blue-400 selection:text-white;
+    @apply selection:bg-blue-400 selection:text-primary;
   }
 
   body {
-    @apply bg-primary-foreground text-foreground;
+    @apply bg-background text-foreground;
   }
 
   .large-currency {

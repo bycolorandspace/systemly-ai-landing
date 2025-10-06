@@ -18,7 +18,7 @@ export default function CTAButton({
   customClass,
 }: CTAButtonProps) {
   const buttonClass = `
-  rounded-lg cursor-pointer flex flex-row  h-[45px] w-[170px]  text-white hover:bg-accent hover:text-foreground  font-semibold text-md
+  rounded-lg cursor-pointer flex flex-row  h-[45px] w-full max-w-[200px]  text-white hover:bg-accent hover:text-foreground  font-semibold text-md
   ${color && convertColors(color)} ${customClass}  `;
 
   return (

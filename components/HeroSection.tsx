@@ -1,19 +1,19 @@
-import { PAGES } from "@/data/links";
+import { HeroSectionType } from "@/types/site-copy-types";
 import CTAButton from "./common/cta-button";
 // import MoneyBurstButton from "./money-burst";
 
-export default function HeroSection() {
+export const HeroSection = ({ content }: { content: HeroSectionType }) => {
   // { action }: { action: () => void }
+  const { header, subheader, ctaLabel, ctaUrl } = content;
   return (
     <section
-      className="flex flex-col items-center justify-center px-8 min-h-screen"
+      className="flex w-full max-w-5xl flex-col items-center justify-center px-8 min-h-screen"
       id="/#"
     >
       <div className="space-y-8">
-        <h1 className="bigHeading">AI generated trade ideas & analysis</h1>
-        <p className="text-lg text-primary font-normal mb-8 text-center">
-          AI co-pilot you’ve been looking for to help you increase and maintain
-          your profit.
+        <h1 className="bigHeading">{header}</h1>
+        <p className="text-lg text-primary font-normal mb-8 text-center w-full max-w-2xl mx-auto">
+          {subheader}
         </p>
       </div>
 
@@ -21,12 +21,12 @@ export default function HeroSection() {
         {/* <MoneyBurstButton action={action} /> */}
 
         <CTAButton
-          label="Get started"
-          url={PAGES.getStarted}
+          label={ctaLabel}
+          url={ctaUrl}
           color="blue"
           customClass="text-white"
         />
       </div>
     </section>
   );
-}
+};

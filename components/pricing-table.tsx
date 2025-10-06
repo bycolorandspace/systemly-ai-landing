@@ -7,6 +7,7 @@ interface PricingTableProps {
   billingMonthly?: boolean;
   price: string;
   features: string[];
+  ctaLabel?: string;
   link?: string;
 }
 
@@ -16,6 +17,7 @@ export default function PricingTable({
   billingMonthly,
   price,
   features,
+  ctaLabel,
   link,
 }: PricingTableProps) {
   return (
@@ -41,7 +43,7 @@ export default function PricingTable({
       </div>
 
       <CTAButton
-        label="Get Started"
+        label={ctaLabel ? ctaLabel : "Start Free Trial"}
         url={link}
         color="blue"
         customClass="w-full my-4"

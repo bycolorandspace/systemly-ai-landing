@@ -1,24 +1,24 @@
 import React from "react";
-import Image from "next/image";
+import { LucideIcon } from "lucide-react";
 
 export default function FeaturesList({
-  iconPath,
+  icon,
   title,
   description,
 }: {
-  iconPath: string;
+  icon: LucideIcon;
   title: string;
   description: string;
 }) {
+  const IconComponent = icon;
   return (
     <div className="flex flex-row items-start justify-center gap-4">
-      <Image
-        src={iconPath}
-        alt="Feature Chart"
-        width={52}
-        height={52}
-        className="w-[52px] h-[52px]"
+      <IconComponent
+        size={32}
+        strokeWidth={0.5}
+        className="text-secondary flex-shrink-0"
       />
+
       <div className="flex flex-col gap-2 mb-8">
         <h2 className="text-xl font-semibold text-primary">{title}</h2>
         <p>{description}</p>
