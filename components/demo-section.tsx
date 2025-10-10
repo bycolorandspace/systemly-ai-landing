@@ -223,7 +223,7 @@ const DemoCarousel = () => {
                   data={item.data}
                   created_at={item.created_at}
                   accountCurrency={item.accountCurrency}
-                  pnl={item.pnl}
+                  pnl={String(item.pnl)}
                 />
               </div>
             </div>

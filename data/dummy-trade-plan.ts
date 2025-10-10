@@ -172,47 +172,47 @@ const tradePlans: TradePlan[] = [
       },
       currentPrice: {
         title: "Current Price",
-        description: "1.0948",
+        description: "1.0975",
       },
       entryZone: {
         title: "Entry Range",
-        description: "1.0950 - 1.0955",
+        description: "1.0980",
       },
       lotSize: {
-        title: "Position Size",
-        description: "Based on 2% account risk",
+        title: "Lot Size",
+        description: "1.5",
       },
       stopLoss: {
         title: "Stop Loss",
-        description: "1.0920 (30 pips below entry)",
+        description: "1.0950 (30 pips)",
       },
       target1: {
-        title: "First Target",
-        description: "1.1000 (50 pips, 50% position close)",
+        title: "Take Profit",
+        description: "1.1025 (45 pips)",
       },
       target2: {
-        title: "Second Target",
-        description: "1.1040 (85 pips, 30% position close)",
+        title: "Take Profit #2",
+        description: "1.1060 (80 pips)",
       },
       target3: {
-        title: "Final Target",
-        description: "1.1080 (125 pips, remaining 20%)",
+        title: "Take Profit #3",
+        description: "1.1120 (140 pips)",
       },
       finalTarget: {
-        title: "Ultimate Target",
-        description: "1.1080 major resistance zone",
+        title: "Ultimate Take Profit",
+        description: "1.1060 (80 pips)",
       },
       support: {
         title: "Key Support",
-        description: "1.0920, 1.0890, 1.0850",
+        description: "1.0950",
       },
       resistance: {
         title: "Key Resistance",
-        description: "1.1000, 1.1040, 1.1080",
+        description: "1.1025",
       },
       riskReward: {
         title: "Risk:Reward Ratio",
-        description: "1:2.8 (excellent)",
+        description: "2.7",
       },
     },
 
@@ -555,47 +555,47 @@ const tradePlans: TradePlan[] = [
       },
       currentPrice: {
         title: "Current Price",
-        description: "$2144.50",
+        description: "2138.00",
       },
       entryZone: {
         title: "Entry Range",
-        description: "$2145 - $2150",
+        description: "2142.00",
       },
       lotSize: {
-        title: "Position Size",
-        description: "Based on 1.5% account risk (counter-trend trade)",
+        title: "Lot Size",
+        description: "1.2",
       },
       stopLoss: {
         title: "Stop Loss",
-        description: "$2165 (20 points above resistance)",
+        description: "2158.00 (160 pips)",
       },
       target1: {
-        title: "First Target",
-        description: "$2120 (25 points, close 60%)",
+        title: "Take Profit",
+        description: "2128.00 (140 pips)",
       },
       target2: {
-        title: "Second Target",
-        description: "$2100 (45 points, close 40%)",
+        title: "Take Profit #2",
+        description: "2108.00 (340 pips)",
       },
       target3: {
-        title: "Extension Target",
-        description: "$2080 if momentum continues",
+        title: "Take Profit #3",
+        description: "2088.00 (540 pips)",
       },
       finalTarget: {
-        title: "Ultimate Target",
-        description: "$2100 psychological support level",
+        title: "Ultimate Take Profit",
+        description: "2108.00 (340 pips)",
       },
       support: {
         title: "Key Support",
-        description: "$2120, $2100, $2080",
+        description: "2108.00",
       },
       resistance: {
         title: "Key Resistance",
-        description: "$2150, $2165, $2180",
+        description: "2158.00",
       },
       riskReward: {
         title: "Risk:Reward Ratio",
-        description: "1:2.2 (acceptable for counter-trend)",
+        description: "2.1",
       },
     },
 
@@ -933,51 +933,51 @@ const tradePlans: TradePlan[] = [
     execution: {
       type: {
         title: "Order Type",
-        description: "Buy Limit at 185.55 or Market Buy on bounce confirmation",
+        description: "Buy Limit at 185.75 or Market Buy on bounce confirmation",
       },
       currentPrice: {
         title: "Current Price",
-        description: "185.65",
+        description: "186.10",
       },
       entryZone: {
         title: "Entry Range",
-        description: "185.50 - 185.70",
+        description: "185.90",
       },
       lotSize: {
-        title: "Position Size",
-        description: "Based on 1.8% account risk for range trade",
+        title: "Lot Size",
+        description: "1.0",
       },
       stopLoss: {
         title: "Stop Loss",
-        description: "185.20 (35 pips below support)",
+        description: "185.70 (20 pips)",
       },
       target1: {
-        title: "First Target",
-        description: "186.80 (mid-range, close 70%)",
+        title: "Take Profit",
+        description: "187.10 (120 pips)",
       },
       target2: {
-        title: "Second Target",
-        description: "187.80 (near resistance, close 30%)",
+        title: "Take Profit #2",
+        description: "187.90 (200 pips)",
       },
       target3: {
-        title: "Stretch Target",
-        description: "188.20 if momentum continues",
+        title: "Take Profit #3",
+        description: "188.30 (240 pips)",
       },
       finalTarget: {
-        title: "Ultimate Target",
-        description: "187.80 near range top",
+        title: "Ultimate Take Profit",
+        description: "187.90 (200 pips)",
       },
       support: {
         title: "Key Support",
-        description: "185.50, 185.20, 184.80",
+        description: "185.70",
       },
       resistance: {
         title: "Key Resistance",
-        description: "186.80, 187.80, 188.50",
+        description: "188.30",
       },
       riskReward: {
         title: "Risk:Reward Ratio",
-        description: "1:1.8 (adequate for range trade)",
+        description: "10.0",
       },
     },
 

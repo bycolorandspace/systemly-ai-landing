@@ -19,16 +19,16 @@ export default function AnalysisSummarisedAlt({
   data: TradePlan;
   created_at: string | null;
   accountCurrency?: string;
-  pnl?: number;
+  pnl: string;
   deleted?: (analysis: string) => void;
 }) {
   return (
     <div
       key={data.id}
       // href={`/analysis/${data.id}`}
-      className="flex flex-col gap-2 group"
+      className="flex flex-col gap-2 group w-full"
     >
-      <Card className="flex flex-col h-[295px] justify-evenly w-full gap-4 mb-2 px-0 py-4 bg-background  shadow-none border border-border/30 rounded-2xl  transition-colors duration-200">
+      <Card className="flex flex-col h-[295px] justify-evenly w-full gap-4 mb-2 px-0 py-4 bg-background  shadow-none border border-border/80 rounded-2xl  transition-colors duration-200">
         <div className="flex md:flex-row justify-between items-center gap-2 px-4">
           <h2 className="text-3xl text-primary font-light flex flex-row items-center justify-start gap-2">
             {data.direction}
@@ -66,6 +66,15 @@ export default function AnalysisSummarisedAlt({
               {data.execution.stopLoss.description}
             </span>
           </div>
+
+          <div className="w-full text-xs  font-light bg-transparent text-secondary   border-b-1 border-border   pb-2 flex flex-row justify-between">
+            <span className="text-secondary   transition-colors duration-400">
+              {data.execution.target2.title}
+            </span>
+            <span className="text-primary">
+              {data.execution.target2.description}
+            </span>
+          </div>
           {/* <Separator
                       orientation="vertical"
                       className="xl:h-full xl:visible"
@@ -84,12 +93,10 @@ export default function AnalysisSummarisedAlt({
 
         <div className="flex flex-row items-center justify-between text-secondary px-6">
           <div>
-            <Link
-              href={"/"}
-              className="text-xs flex flex-row gap-2 items-center"
-            >
-              <span>See full breakdown</span>{" "}
-              <ChevronDown className="w-4 h-4" />
+            <Link href={"/"} className=" ">
+              <Badge className="bg-primary text-card h-6 group-hover:bg-accent transition-colors duration-500">
+                <span>Full breakdown</span> <ChevronDown className="w-4 h-4" />
+              </Badge>
             </Link>
           </div>
           <div className="flex flex-row gap-2 justify-start items-center">

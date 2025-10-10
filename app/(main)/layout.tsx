@@ -8,6 +8,8 @@ import {
 import "../globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { Metadata_ } from "@/data/site-copy";
+import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -48,7 +50,11 @@ export default function RootLayout({
         className={`${inter.variable} ${spaceGrotesk.variable} font-inter    antialiased`}
       >
         <div className="min-h-screen bg-white text-gray-900 landing">
+          {/* HEADER */}
+          <Header />
           {children}
+          {/* Footer */}
+          <Footer />
           <Toaster />
         </div>
       </body>

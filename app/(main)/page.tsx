@@ -1,7 +1,8 @@
 "use client";
 import { AboutSection } from "@/components/About-section";
-import Footer from "@/components/common/Footer";
-import Header from "@/components/common/Header";
+import AnimatedWrapper from "@/components/common/AnimatedWrapper";
+// import Footer from "@/components/common/Footer";
+// import Header from "@/components/common/Header";
 import FeaturesSection from "@/components/FeaturesSection";
 //import FloatingDollarsBackground from "@/components/FloatingDollars";
 import { HeroSection } from "@/components/HeroSection";
@@ -18,7 +19,8 @@ import {
   TESTIMONIALS,
   TRADE_CARDS_SECTION,
 } from "@/data/site-copy";
-import React from "react";
+import Image from "next/image";
+import React, { useEffect } from "react";
 
 // WE ARE BEHIND YOU.
 // BE SAFE OUT THERE.
@@ -32,6 +34,15 @@ export default function Home() {
 
   //  const [toggleMoneyBurst, setToggleMoneyBurst] = React.useState(false);
 
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const id = window.location.hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, []);
   return (
     <>
       {/* <FloatingDollarsBackground
@@ -42,13 +53,30 @@ export default function Home() {
         toggleBurst={toggleMoneyBurst}
       /> */}
       <div className="flex flex-col items-center justify-start min-h-screen">
-        {/* HEADER */}
-        <Header />
         {/* HERO  */}
         <HeroSection content={HERO} />
 
         {/* DEMO */}
         <TradesDemoSection content={TRADE_CARDS_SECTION} />
+
+        <section className="flex flex-col items-center justify-center w-full max-w-6xl  px-0 my-20 ">
+          <AnimatedWrapper
+            animation="fadeInUp"
+            duration={800}
+            delay={400}
+            easing="spring"
+            threshold={0}
+            triggerOnce={false} // animate only once or every time it enters viewport
+          >
+            <Image
+              src="/images/new-strategy.png"
+              alt="new-strategy"
+              width={430}
+              height={650}
+              className="my-2 w-[430] h-[650] object-contain"
+            />
+          </AnimatedWrapper>
+        </section>
 
         {/* ABOUT */}
         <AboutSection content={ABOUT} />
@@ -67,9 +95,6 @@ export default function Home() {
 
         {/* CTA Section */}
         {/* <CTASection /> */}
-
-        {/* Footer */}
-        <Footer />
       </div>
     </>
   );

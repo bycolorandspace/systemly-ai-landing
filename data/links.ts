@@ -12,8 +12,8 @@ const SOCIALS = {
 
 const PAGES = {
   home: "/",
-  terms: "/terms",
-  privacy: "/privacy",
+  terms: "/legal/terms",
+  privacy: "/legal/privacy",
   getStarted: "/onboarding",
   dashboard: "https://app.systemly.ai/dashboard",
   login: "https://app.systemly.ai/login",
@@ -29,10 +29,10 @@ const PRICING = {
 
 const NAV = {
   home: "/",
-  about: "#about",
-  features: "#features",
-  pricing: "#pricing",
-  faq: "#faq",
+  about: "/#about",
+  features: "/#features",
+  pricing: "/#pricing",
+  faq: "/#faq",
   community: SOCIALS.X, // Change to discord or forum later
   getStarted: PAGES.getStarted,
 };

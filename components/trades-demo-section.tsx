@@ -8,6 +8,7 @@ import AnalysisSummarisedAlt from "./trades/analysis-summarised-alt";
 
 // import { ChevronLeft, ChevronRight } from "lucide-react";
 import { TradeCardsSectionType } from "@/types/site-copy-types";
+import AnimatedWrapper from "./common/AnimatedWrapper";
 
 const TradesDemoSection = ({ content }: { content: TradeCardsSectionType }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -31,35 +32,21 @@ const TradesDemoSection = ({ content }: { content: TradeCardsSectionType }) => {
       data: tradePlans[0],
       created_at: 19 + Math.floor(Math.random() * 11) + " days ago",
       accountCurrency: "USD",
-      pnl: 250.75,
+      pnl: "1.2k - 80 pips",
     },
     {
       id: 1,
       data: tradePlans[1],
       created_at: 10 + Math.floor(Math.random() * 6) + " days ago",
-      accountCurrency: "USD",
-      pnl: -120.5,
+      accountCurrency: "GBP",
+      pnl: "408 - 340 pips",
     },
     {
       id: 2,
       data: tradePlans[2],
       created_at: 5 + Math.floor(Math.random() * 4) + " days ago",
       accountCurrency: "USD",
-      pnl: 75.0,
-    },
-    {
-      id: 3,
-      data: tradePlans[0],
-      created_at: 19 + Math.floor(Math.random() * 11) + " days ago",
-      accountCurrency: "USD",
-      pnl: 250.75,
-    },
-    {
-      id: 4,
-      data: tradePlans[1],
-      created_at: 10 + Math.floor(Math.random() * 6) + " days ago",
-      accountCurrency: "USD",
-      pnl: -120.5,
+      pnl: "1.3k - 200 pips",
     },
   ];
 
@@ -82,39 +69,40 @@ const TradesDemoSection = ({ content }: { content: TradeCardsSectionType }) => {
   }, [emblaMainApi, onSelect]);
 
   // Calculate if item should be blurred
-  const getItemOpacity = (itemIndex: number) => {
-    if (!emblaMainApi) return 1;
+  // const getItemOpacity = (itemIndex: number) => {
+  //   if (!emblaMainApi) return 1;
 
-    // Get slides in view
-    const slidesInView = emblaMainApi.slidesInView();
-    const selectedSnap = emblaMainApi.selectedScrollSnap();
+  //   // Get slides in view
+  //   const slidesInView = emblaMainApi.slidesInView();
+  //   const selectedSnap = emblaMainApi.selectedScrollSnap();
 
-    // For 3-item view, center item is sharp, sides are blurred
-    if (slidesInView.includes(itemIndex)) {
-      const centerIndex = selectedSnap;
-      return itemIndex === centerIndex ? 1 : 0.4;
-    }
+  //   // For 3-item view, center item is sharp, sides are blurred
+  //   if (slidesInView.includes(itemIndex)) {
+  //     const centerIndex = selectedSnap;
+  //     return itemIndex === centerIndex ? 1 : 0.4;
+  //   }
 
-    return 0.4;
-  };
+  //   return 0.4;
+  // };
 
-  const getItemBlur = (itemIndex: number) => {
-    if (!emblaMainApi) return "";
+  // const getItemBlur = (itemIndex: number) => {
+  //   if (!emblaMainApi) return "";
 
-    const slidesInView = emblaMainApi.slidesInView();
-    const selectedSnap = emblaMainApi.selectedScrollSnap();
+  //   const slidesInView = emblaMainApi.slidesInView();
+  //   const selectedSnap = emblaMainApi.selectedScrollSnap();
 
-    if (slidesInView.includes(itemIndex)) {
-      const centerIndex = selectedSnap;
-      return itemIndex === centerIndex ? "" : "blur-xs";
-    }
+  //   if (slidesInView.includes(itemIndex)) {
+  //     const centerIndex = selectedSnap;
+  //     return itemIndex === centerIndex ? "" : "blur-xs";
+  //   }
 
-    return "blur-xs";
-  };
+  //   return "blur-xs";
+  // };
 
   return (
     <section
-      className="flex flex-col items-center justify-center w-full max-w-6xl gap-20 px-0  mt-[-80px] mb-20"
+      className="flex flex-col items-center justify-center w-full max-w-6xl gap-20 px-0  mt-[150px] mb-20"
+      id="demo"
       // onMouseEnter={() => setIsHovering(true)}
       // onMouseLeave={() => setIsHovering(false)}
     >
@@ -154,7 +142,7 @@ const TradesDemoSection = ({ content }: { content: TradeCardsSectionType }) => {
               width={137}
               height={37}
               alt="Auto Risk Calculation"
-              className="absolute top-[160px] right-[-110px]"
+              className="absolute top-[110px] right-[-120px]"
             />
             <Image
               src={"images/Full-analysis.svg"}
@@ -167,12 +155,27 @@ const TradesDemoSection = ({ content }: { content: TradeCardsSectionType }) => {
           {/* Text Section */}
           <div className="flex flex-col gap-8 px-4 w-full justify-center">
             <div className="space-y-4 w-full flex flex-col justify-center items-center md:items-start">
-              <h3 className="text-sm text-secondary mb-4 text-center md:text-left">
-                Demo
-              </h3>
-              <h2 className="heading max-w-xl text-center md:text-left">
-                {title}
-              </h2>
+              <AnimatedWrapper
+                animation="fadeInUp"
+                duration={600}
+                delay={200}
+                easing="spring"
+              >
+                <h3 className="text-sm text-secondary mb-4 text-center md:text-left">
+                  Demo
+                </h3>
+              </AnimatedWrapper>
+
+              <AnimatedWrapper
+                animation="fadeInUp"
+                duration={800}
+                delay={300}
+                easing="spring"
+              >
+                <h2 className="heading max-w-xl text-center md:text-left">
+                  {title}
+                </h2>
+              </AnimatedWrapper>
             </div>
             <p className="text-lg text-primary text-center md:text-left mx-auto ">
               {subtext}
@@ -200,12 +203,9 @@ const TradesDemoSection = ({ content }: { content: TradeCardsSectionType }) => {
                 {demoItems.map((trade, index) => (
                   <div
                     key={index}
-                    className={`flex-[0_0_33.333%] min-w-0 pl-4 transition-all duration-500 ${getItemBlur(
-                      index
-                    )}`}
-                    style={{ opacity: getItemOpacity(index) }}
+                    className={`flex-[0_0_100%] min-w-0 pl-4 transition-all duration-500`}
                   >
-                    <div className="w-full max-w-[360px] mx-auto">
+                    <div className="w-full max-w-[400px] mx-auto">
                       <AnalysisSummarisedAlt
                         key={trade.id}
                         data={trade.data}

@@ -21,7 +21,7 @@ export default function TestimonialsSection({
   );
 
   return (
-    <section className="flex flex-col items-center justify-center w-full max-w-6xl px-4 py-8 min-h-screen">
+    <section className="flex flex-col items-center justify-center text-center w-full max-w-6xl px-4 py-20 ">
       <h3 className="text-sm text-secondary mb-4">{subheader}</h3>
       <h2 className="heading headerh2 mb-8">{title}</h2>
       {/* {Mobile testimonial} */}

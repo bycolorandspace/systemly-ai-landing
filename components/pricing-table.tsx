@@ -21,7 +21,7 @@ export default function PricingTable({
   link,
 }: PricingTableProps) {
   return (
-    <div className=" rounded-xl py-6 px-4 border-muted border-1 w-full max-w-[280px] h-full mx-auto md:mx-0 space-y-8 flex flex-col justify-between">
+    <div className=" rounded-xl py-6 px-4 border-border/70 border-1 w-full max-w-[280px] h-full mx-auto md:mx-0 space-y-8 flex flex-col justify-between">
       <div>
         <h3 className="text-2xl font-medium text-primary mb-4">{name}</h3>
         <p className=" text-secondary mb-4">{description}</p>

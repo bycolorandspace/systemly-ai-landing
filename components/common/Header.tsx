@@ -39,7 +39,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex flex-row items-center gap-4">
-            <HeaderNav handleNavClick={handleNavClick} />
+            <HeaderNav />
           </div>
 
           {/* Mobile Menu Button */}
