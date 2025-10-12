@@ -59,7 +59,7 @@ export default function Home() {
         {/* DEMO */}
         <TradesDemoSection content={TRADE_CARDS_SECTION} />
 
-        <section className="flex flex-col items-center justify-center w-full max-w-6xl  px-0 my-20 ">
+        <section className="flex flex-col items-center justify-center w-full max-w-6xl  px-4 my-10 ">
           <AnimatedWrapper
             animation="fadeInUp"
             duration={800}

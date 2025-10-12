@@ -101,7 +101,7 @@ const TradesDemoSection = ({ content }: { content: TradeCardsSectionType }) => {
 
   return (
     <section
-      className="flex flex-col items-center justify-center w-full max-w-6xl gap-20 px-0  mt-[150px] mb-20"
+      className="flex flex-col items-center justify-center w-full max-w-6xl gap-20 px-0  mt-[100px] mb-10"
       id="demo"
       // onMouseEnter={() => setIsHovering(true)}
       // onMouseLeave={() => setIsHovering(false)}
