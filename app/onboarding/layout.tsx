@@ -17,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#3B82F6",
+  themeColor: "#FFFFFF",
 };
 
 export const metadata: Metadata = {
