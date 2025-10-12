@@ -24,7 +24,11 @@ export default function Header() {
   ) => {
     e.preventDefault();
     scrollToSection(href);
-    closeMenu();
+
+    // Delay closing menu until after scroll starts
+    setTimeout(() => {
+      closeMenu();
+    }, 100);
   };
 
   return (
@@ -74,10 +78,7 @@ export default function Header() {
           }`}
         >
           <div className="flex flex-col px-8 pt-30 pb-6 space-y-6">
-            <MobileHeaderNav
-              handleNavClick={handleNavClick}
-              closeMenu={closeMenu}
-            />
+            <MobileHeaderNav handleNavClick={handleNavClick} />
           </div>
         </div>
       </div>

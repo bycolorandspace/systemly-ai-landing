@@ -4,41 +4,39 @@ import { NAV } from "@/data/links";
 
 export const MobileHeaderNav = ({
   handleNavClick,
-  closeMenu,
 }: {
   handleNavClick: (
     e: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => void;
-  closeMenu: () => void;
 }) => {
   return (
     <>
       <nav className="flex flex-col space-y-4">
         <Link
-          href={NAV.about}
-          onClick={(e) => handleNavClick(e, NAV.about)}
+          href={"#about"}
+          onClick={(e) => handleNavClick(e, "#about")} // Just this
           className="text-lg text-primary font-semibold py-2 px-4 rounded-lg hover:bg-black/5 transition-colors"
         >
           About
         </Link>
         <Link
-          href={NAV.features}
-          onClick={(e) => handleNavClick(e, NAV.features)}
+          href={"#features"}
+          onClick={(e) => handleNavClick(e, "#features")}
           className="text-lg text-primary font-semibold py-2 px-4 rounded-lg hover:bg-black/5 transition-colors"
         >
           Features
         </Link>
         <Link
-          href={NAV.pricing}
-          onClick={(e) => handleNavClick(e, NAV.pricing)}
+          href={"#pricing"}
+          onClick={(e) => handleNavClick(e, "#pricing")}
           className="text-lg text-primary font-semibold py-2 px-4 rounded-lg hover:bg-black/5 transition-colors"
         >
           Pricing
         </Link>
         <Link
           href={NAV.community}
-          onClick={closeMenu}
+          onClick={(e) => handleNavClick(e, NAV.community)}
           className="text-lg text-primary font-semibold py-2 px-4 rounded-lg hover:bg-black/5 transition-colors"
         >
           Community
