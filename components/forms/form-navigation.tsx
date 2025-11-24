@@ -55,10 +55,9 @@ export default function FormNavigation({
       <Button
         type="submit"
         form={formId}
-        disabled={enableSubmit ? false : true}
-        className={`${
-          stepIndex === totalQuestions - 1 ? "block" : "hidden"
-        } flex flex-row justify-between w-full max-w-[90px] lg:max-w-[150px] px-4 text-background cursor-pointer`}
+        disabled={!enableSubmit}
+        hidden={stepIndex === totalQuestions - 1 ? false : true}
+        className={` flex flex-row justify-between w-full max-w-[90px] lg:max-w-[150px] px-4 text-background cursor-pointer`}
         size="lg"
       >
         Submit

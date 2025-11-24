@@ -88,9 +88,9 @@ export default function CheckBoxOnboardingInput({
                 return (
                   <FormItem
                     key={option}
-                    className="w-full h-auto rounded-xl mb-4 font-bold bg-card text-primary text-lg"
+                    className="w-full h-auto rounded-xl mb-2 md:mb-4 font-bold bg-card text-primary text-sm md:text-lg"
                   >
-                    <label className="flex flex-row gap-4 justify-start items-center px-6 py-8 cursor-pointer hover:bg-gray-200 rounded-xl">
+                    <label className="flex flex-row gap-4 justify-start items-center px-6 py-4 cursor-pointer hover:bg-gray-200 rounded-xl">
                       <FormControl>
                         <Checkbox
                           className="border border-border bg-background"
@@ -123,7 +123,7 @@ export default function CheckBoxOnboardingInput({
                           }}
                         />
                       </FormControl>
-                      <span className="font-bold text-left text-primary text-lg">
+                      <span className="font-bold text-left text-primary text-sm md:text-lg">
                         {option}
                       </span>
                     </label>

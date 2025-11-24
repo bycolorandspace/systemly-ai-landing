@@ -62,16 +62,16 @@ export default function FormStep({ step }: { step: Step }) {
                     onClick={() => handleOptionClick(option)}
                     className={`${
                       currentValue === option.text && `bg-gray-300`
-                    } w-full h-auto flex flex-row gap-2 justify-between items-center rounded-xl mb-4 px-6 py-8   bg-card   cursor-pointer hover:bg-gray-200`}
+                    } w-full h-auto flex flex-row gap-2 justify-between items-center rounded-xl mb-4 px-6 py-4   bg-card   cursor-pointer hover:bg-gray-200`}
                   >
                     {" "}
-                    <div className="flex flex-row gap-4 justify-start items-center">
+                    <div className="flex flex-row gap-4 justify-start items-center w-full">
                       <span className="text-4xl">{option.emoji}</span>{" "}
-                      <span className="font-bold  text-left text-primary text-lg">
+                      <span className="font-bold  text-left text-primary text-sm md:text-lg">
                         {option.text}
                       </span>
                     </div>
-                    <span className="rounded-full bg-background w-6 h-6 border-1 border-boder  flex justify-center items-center">
+                    <span className="rounded-full bg-background w-6 h-6 border-1 border-primary  flex justify-center items-center">
                       {currentValue === option.text && (
                         <FaCheck className="text-accent w-4 h-4" />
                         // <div className="bg-primary w-2 h-2 rounded-full "></div>

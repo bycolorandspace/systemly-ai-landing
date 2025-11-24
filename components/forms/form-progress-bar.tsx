@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge } from "../ui/badge";
+// import { Badge } from "../ui/badge";
 
 export default function FormProgressBar({
   totalQuestions,
@@ -11,13 +11,13 @@ export default function FormProgressBar({
 }) {
   const progressPercentage = ((stepIndex + 1) / totalQuestions) * 100; // Calculate the progress percentage
   return (
-    <div className="flex flex-row justify-start items-center w-full md:max-w-[300px]">
-      <Badge className="text-md bg-transparent text-primary">
+    <div className="flex flex-row justify-start items-center w-full md:max-w-[300px] mx-auto">
+      {/* <Badge className="text-md bg-transparent text-primary">
         Step {stepIndex + 1} of {totalQuestions}
-      </Badge>
-      <div className="max-w-[300px] w-full mx-4">
+      </Badge> */}
+      <div className=" w-full mx-4 md:mx-0">
         <div
-          className="border-1 rounded-2xl h-2 w-full p-2 flex items-center justify-start"
+          className="border-1 border-border rounded-2xl h-2 w-full p-2 flex items-center justify-start"
           style={{ width: "100%" }}
         >
           <div

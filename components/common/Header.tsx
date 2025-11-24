@@ -35,7 +35,7 @@ export default function Header() {
     <>
       <header className="flex fixed z-50 w-full">
         <div
-          className={`flex justify-between items-center w-full  max-w-5xl  py-2 px-4 mx-6 lg:mx-auto mt-8 backdrop-blur-md bg-white/20 ${
+          className={`flex justify-between items-center w-full  max-w-5xl  py-2 px-4 mx-6 lg:mx-auto mt-8 backdrop-blur-md bg-white/50 ${
             isMenuOpen ? ` ` : `border border-black/10 rounded-2xl px-4`
           }`}
         >

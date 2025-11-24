@@ -26,6 +26,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { FormProvider, useForm, useFormContext } from "react-hook-form";
 import { toast } from "sonner";
+import { DownloadIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function OnboardingPage() {
   const {
@@ -71,17 +73,25 @@ export default function OnboardingPage() {
     <div className="min-h-screen flex items-start justify-center w-full">
       <header className="flex fixed z-50 w-full">
         <div
-          className={`flex flex-col md:flex-row md:justify-between justify-center items-center w-full  max-w-5xl gap-4  py-4 md:py-2 mx-6 lg:mx-auto mt-8 backdrop-blur-md bg-white/20 border border-black/10 rounded-2xl px-4 `}
+          className={`flex flex-col md:flex-row md:justify-between justify-center items-center w-full  max-w-5xl gap-4  py-2 mx-6 lg:mx-auto mt-8 backdrop-blur-md bg-white/20 border border-black/10 rounded-2xl px-4 `}
         >
           <Logo />
-
+          <div className="hidden sm:flex max-w-[300px] w-full">
+            <FormProgressBar
+              totalQuestions={totalQuestions}
+              stepIndex={stepIndex}
+            />
+          </div>
+        </div>
+      </header>
+      <div className="text-center mt-30 md:mt-40 w-full  p-4 space-y-4  ">
+        <div className="flex md:hidden">
           <FormProgressBar
             totalQuestions={totalQuestions}
             stepIndex={stepIndex}
           />
         </div>
-      </header>
-      <div className="text-center mt-60 md:mt-40 w-full  p-4   ">
+
         <div>
           {/* Render only current step */}
 
@@ -93,14 +103,17 @@ export default function OnboardingPage() {
                 onSubmit={methods.handleSubmit(handleSubmit)}
                 className="flex flex-col w-full h-full space-y-8"
               >
-                <RenderStep {...onboarding.steps[stepIndex]} />
+                <RenderStep
+                  {...onboarding.steps[stepIndex]}
+                  stepIndex={stepIndex}
+                />
               </form>
             </Form>
           </FormProvider>
         </div>
       </div>
       <footer className="flex fixed bottom-0 z-50 w-full ">
-        <div className="flex justify-center items-center w-full  max-w-5xl  py-4 px-4 mx-6 lg:mx-auto   mb-8 backdrop-blur-md bg-white/20 border border-black/10 rounded-2xl  ">
+        <div className="flex justify-center items-center w-full  max-w-5xl  py-4 px-4 mx-6 lg:mx-auto   mb-8 backdrop-blur-md bg-white/50 border border-black/10 rounded-2xl  ">
           <FormNavigation
             stepIndex={stepIndex}
             totalQuestions={totalQuestions}
@@ -115,24 +128,47 @@ export default function OnboardingPage() {
   );
 }
 
-const RenderStep = (step: Step) => {
+const RenderStep = (props: Step & { stepIndex: number }) => {
+  const { stepIndex, ...step } = props;
+  const { nextQuestion } = useOnboardingFormContext();
   const { register } = useFormContext();
   return (
     <div className="  w-full max-w-5xl mx-auto h-auto mb-20">
       {/* Step meta */}
-      <div className="flex  flex-col max-w-4xl gap-6 mb-4 mx-auto">
-        <h1 className="heading">{step.title}</h1>
-        <p className="text-xl text-primary ">{step.subtitle}</p>
-        <p className=" text-lg text-secondary ">{step.description}</p>
+      <div className="flex  flex-col max-w-4xl gap-2 mx-auto mb-2">
+        <h1 className="text-2xl font-bold">{step.title}</h1>
+        <p className="text-sm md:text-sm max-w-xl mx-auto text-primary ">
+          {step.subtitle}
+        </p>
+        {stepIndex === 0 && (
+          <div className="relative">
+            <Link href={"#"} onClick={nextQuestion}>
+              <div className="md:absolute top-8 w-full md:max-w-[320px] flex flex-row md:left-1/2 md:-translate-x-1/2 text-md p-3 md:p-4 bg-accent text-background rounded-md">
+                <DownloadIcon className="inline-block mr-4 w-8 h-8" />
+                <span className="flex text-left w-full text-sm md:text-md">
+                  {step.description}
+                </span>
+              </div>
+
+              <Image
+                src="/images/onboarding/trading-book-cover-mockup.jpg"
+                alt="Welcome Illustration"
+                width={1000}
+                height={600}
+                className="w-full h-auto mx-auto mt-4 rounded-2xl"
+              />
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Step content */}
-      <div className="space-y-8">
+      <div className="md:space-y-8">
         {/* Show header */}
         {step.content && (
           <div className="flex flex-col gap-6">
             {step.content.headline && (
-              <h3 className="text-secondary font-normal text-4xl">
+              <h3 className="text-secondary font-normal text-xl">
                 {step.content.headline}
               </h3>
             )}
@@ -147,9 +183,9 @@ const RenderStep = (step: Step) => {
           <FormStep step={step} />
         ) : (
           // Show content
-          <div className="grid grid-cols-1 md:grid-cols-2  gap-8 py-12 ">
+          <div className="flex flex-col w-full max-w-[500px] mx-auto  gap-4 py-4 ">
             {/* Left side -  image OR Form*/}
-            <div className="col-span-1 flex flex-col justify-start w-full items-start gap-4">
+            <div className="col-span-1 flex flex-col justify-start w-full items-center gap-4">
               {
                 // If form is available, show form other wise show image and options
                 step.type === "form"
@@ -212,15 +248,7 @@ const RenderStep = (step: Step) => {
                         }
                       </div>
                     ))
-                  : step.image?.url && (
-                      <Image
-                        src={step.image?.url || "/placeholder-image.png"}
-                        alt={step.image?.alt || "Step Image"}
-                        width={400}
-                        height={300}
-                        className="rounded-lg w-full h-full object-cover"
-                      />
-                    )
+                  : null
               }
             </div>
 
@@ -239,7 +267,7 @@ const RenderStep = (step: Step) => {
                           {option.emoji && option.emoji}
                         </span>
                         <div className="flex flex-col">
-                          <span className="text-lg leading-[1.4]">
+                          <span className="text-sm md:text-lg leading-[1.4]">
                             {option.text}
                           </span>
                           {option.value && (

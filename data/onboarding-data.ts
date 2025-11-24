@@ -9,7 +9,7 @@ const onboardingFlow: OnboardingFlow = {
     totalSteps: 12,
     purpose: "market_research_onboarding",
     image: {
-      url: "",
+      url: "/images/onboarding/trading-book-cover-mockup.jpg",
       alt: "Friendly AI robot and human trader shaking hands",
       size: "large",
     },
@@ -21,10 +21,11 @@ const onboardingFlow: OnboardingFlow = {
       type: "content",
       input: null,
       category: "introduction",
-      title: "Welcome trader, let's build Your Perfect Trading Setup",
-      subtitle: "2 minutes to customize your AI trading experience",
+      title: "Hey Trader, 2 minutes to customise your AI trading experience",
+      subtitle:
+        "Answer the some following questions and download your free trading psychology guide for your trading style and preferences.",
       description:
-        "We need to understand your trading DNA. This isn't another boring form - think of it as your trading therapy session (but faster and with better results).",
+        "Worth $97, yours is free when you complete the onboarding! Includes discount code for early access.",
       image: {
         url: "",
         alt: "Enthusiastic trader with laptop and coffee",
@@ -1295,7 +1296,8 @@ const onboardingFlow: OnboardingFlow = {
       input: "email",
       category: "conversion",
       title: "🚀 Ready to transform your trading?",
-      subtitle: "Join the Waitlist & Get Early Access",
+      subtitle:
+        "Download your free guide, join the Waitlist & Get Early Access",
       description: "Limited to first 5,000 early access members",
       image: {
         url: "/images/ai-trading-partnership-success.jpg",

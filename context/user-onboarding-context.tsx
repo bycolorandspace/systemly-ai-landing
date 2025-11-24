@@ -27,7 +27,7 @@ export const OnboardingFormProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [stepIndex, setStepIndex] = useState(10);
+  const [stepIndex, setStepIndex] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [error, setError] = useState<string | undefined>(undefined);
