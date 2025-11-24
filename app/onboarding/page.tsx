@@ -132,7 +132,7 @@ export default function OnboardingPage() {
 
 const RenderStep = (props: Step & { stepIndex: number }) => {
   const { stepIndex, ...step } = props;
-  const { nextQuestion } = useOnboardingFormContext();
+  const { nextQuestion, totalQuestions } = useOnboardingFormContext();
   const { register } = useFormContext();
   return (
     <div className="  w-full max-w-5xl mx-auto h-auto mb-20">
@@ -185,9 +185,13 @@ const RenderStep = (props: Step & { stepIndex: number }) => {
           <FormStep step={step} />
         ) : (
           // Show content
-          <div className="flex flex-col md:flex-row text-left justify-start items-start w-full max-w-[500px] md:max-w-4xl mx-auto  gap-4 py-4 ">
+          <div className="flex flex-col md:flex-row text-left justify-center items-start w-full max-w-[500px] md:max-w-4xl mx-auto  gap-4 py-4 ">
             {/* Left side -  image OR Form*/}
-            <div className=" flex flex-col justify-start w-full md:w-1/2  items-start gap-4">
+            <div
+              className={` flex flex-col justify-start ${
+                stepIndex === totalQuestions - 1 && `w-full  md:w-1/2`
+              } items-start gap-4`}
+            >
               {
                 // If form is available, show form other wise show image and options
                 step.type === "form"
@@ -253,15 +257,17 @@ const RenderStep = (props: Step & { stepIndex: number }) => {
                   : null
               }
 
-              <Button
-                type="submit"
-                // disabled={!enableSubmit}
-                className={` flex flex-row justify-between w-full max-w-[90px] lg:max-w-[150px] px-4 text-background cursor-pointer`}
-                size="lg"
-              >
-                Submit
-                <ArrowRight className="w-6 h-6" />
-              </Button>
+              {step.type === "form" && (
+                <Button
+                  type="submit"
+                  // disabled={!enableSubmit}
+                  className={` flex flex-row justify-between w-full max-w-[90px] lg:max-w-[150px] px-4 text-background cursor-pointer`}
+                  size="lg"
+                >
+                  Submit
+                  <ArrowRight className="w-6 h-6" />
+                </Button>
+              )}
             </div>
 
             {/* Right side - Lists  */}

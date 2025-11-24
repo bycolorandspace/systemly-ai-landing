@@ -34,7 +34,7 @@ export const OnboardingFormProvider = ({
   const totalQuestions = onboardingFlow.steps.length;
 
   const toggleSubmit = async (data: OnboardingDataValues) => {
-    console.log("Toggling submit state - PARTNER FORM DATA");
+    //console.log("Toggling submit state - PARTNER FORM DATA");
 
     const validation = OnboardingSchema.safeParse(data);
     if (!validation.success) {
@@ -59,7 +59,7 @@ export const OnboardingFormProvider = ({
       console.log("Parsed result:", result);
 
       if (result.success) {
-        console.log("Form submitted successfully:", result);
+        //console.log("Form submitted successfully:", result);
         // Optionally, track form completion here
         // trackFormComplete("therapy_onboarding");
       } else {
@@ -79,7 +79,7 @@ export const OnboardingFormProvider = ({
       );
     }
 
-    console.log("📋 Onboarding form data before submission:", data);
+    //console.log("📋 Onboarding form data before submission:", data);
 
     setIsSubmitting((prev) => !prev);
   };
