@@ -26,8 +26,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { FormProvider, useForm, useFormContext } from "react-hook-form";
 import { toast } from "sonner";
-import { DownloadIcon } from "lucide-react";
+import { ArrowRight, DownloadIcon } from "lucide-react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function OnboardingPage() {
   const {
@@ -119,6 +120,7 @@ export default function OnboardingPage() {
             totalQuestions={totalQuestions}
             enableNext={onboarding.steps[stepIndex].input !== "radio"}
             enableSubmit={methods.formState.isValid}
+            formId="onboarding-form"
             next={nextQuestion}
             prev={prevQuestion}
           />
@@ -183,9 +185,9 @@ const RenderStep = (props: Step & { stepIndex: number }) => {
           <FormStep step={step} />
         ) : (
           // Show content
-          <div className="flex flex-col w-full max-w-[500px] mx-auto  gap-4 py-4 ">
+          <div className="flex flex-col md:flex-row text-left justify-start items-start w-full max-w-[500px] md:max-w-4xl mx-auto  gap-4 py-4 ">
             {/* Left side -  image OR Form*/}
-            <div className="col-span-1 flex flex-col justify-start w-full items-center gap-4">
+            <div className=" flex flex-col justify-start w-full md:w-1/2  items-start gap-4">
               {
                 // If form is available, show form other wise show image and options
                 step.type === "form"
@@ -250,10 +252,20 @@ const RenderStep = (props: Step & { stepIndex: number }) => {
                     ))
                   : null
               }
+
+              <Button
+                type="submit"
+                // disabled={!enableSubmit}
+                className={` flex flex-row justify-between w-full max-w-[90px] lg:max-w-[150px] px-4 text-background cursor-pointer`}
+                size="lg"
+              >
+                Submit
+                <ArrowRight className="w-6 h-6" />
+              </Button>
             </div>
 
             {/* Right side - Lists  */}
-            <div className="order-first md:order-last col-span-1 flex flex-col justify-start items-start gap-4">
+            <div className="w-full md:w-1/2 order-first md:order-last col-span-1 flex flex-col justify-start items-start gap-4">
               {step.options &&
                 step.options.map((option, index) => {
                   return (

@@ -1297,7 +1297,7 @@ const onboardingFlow: OnboardingFlow = {
       category: "conversion",
       title: "🚀 Ready to transform your trading?",
       subtitle:
-        "Download your free guide, join the Waitlist & Get Early Access",
+        "Fill out form below to download your FREE guide and join Early Access waitlist.",
       description: "Limited to first 5,000 early access members",
       image: {
         url: "/images/ai-trading-partnership-success.jpg",
