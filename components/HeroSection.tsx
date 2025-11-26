@@ -9,7 +9,7 @@ export const HeroSection = ({ content }: { content: HeroSectionType }) => {
 
   return (
     <section
-      className="flex w-full max-w-6xl flex-col items-center justify-center px-8 mt-60"
+      className="flex w-full max-w-6xl flex-col items-center justify-center px-8 mt-40 md:mt-0  md:min-h-screen text-center"
       id="hero"
     >
       <div className="space-y-8">

@@ -10,7 +10,7 @@ export const AboutSection = ({ content }: { content: AboutSectionType }) => {
   return (
     <section
       id="about"
-      className="flex flex-col items-center justify-center w-full max-w-6xl px-4 py-8"
+      className="flex flex-col items-center justify-center w-full max-w-6xl px-4 py-8 min-h-screen"
     >
       {/* Animated Subheader */}
       <AnimatedWrapper animation="fadeIn" duration={600} delay={0}>

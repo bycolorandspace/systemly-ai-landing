@@ -14,7 +14,7 @@ export default function FeaturesSection({
   return (
     <section
       id="features"
-      className="grid grid-cols-1 md:grid-cols-2 items-start justify-center w-full max-w-6xl md:mx-6 px-4 py-8"
+      className="grid grid-cols-1 md:grid-cols-2 items-start justify-center w-full max-w-6xl mx-0 md:mx-6 px-4 py-8 md:py-50 min-h-screen"
     >
       {/* Left Column - Text Content */}
       <div className="w-full flex flex-col items-start space-y-8">
@@ -36,7 +36,7 @@ export default function FeaturesSection({
         </div>
 
         {/* Features List - Staggered Animation */}
-        <div className="flex flex-col items-start space-y-4">
+        <div className="flex flex-col items-start space-y-4 w-full">
           {featuresList.map((feature, index) => (
             <AnimatedWrapper
               key={index}
@@ -56,28 +56,38 @@ export default function FeaturesSection({
       </div>
 
       {/* Right Column - Image */}
-      <AnimatedWrapper
-        animation="fadeInRight"
-        duration={1000}
-        delay={300}
-        easing="ease-out"
-        threshold={0}
-        triggerOnce={false} // animate only once or every time it enters viewport
-        className="my-20"
-      >
-        <div className="w-full">
-          <div className="flex justify-end w-full md:pl-6 mx-auto h-[500px] rounded-lg">
+      <div className="w-full hidden md:flex justify-center items-center">
+        <AnimatedWrapper
+          animation="fadeInRight"
+          duration={1000}
+          delay={300}
+          easing="ease-out"
+          threshold={0}
+          triggerOnce={false} // animate only once or every time it enters viewport
+          className="my-20 w-full"
+        >
+          <div className="flex justify-end w-full p-0 md:pl-6 mx-auto h-auto rounded-lg">
             <Image
               src="/images/home.png"
               alt="home-screen"
               width={430}
               height={650}
-              className="my-2 w-[430] h-[650] object-contain"
+              className="my-2 w-full max-w-[380px] h-auto  object-contain"
             />
             {/* <RiskDoctorResults /> */}
           </div>
-        </div>
-      </AnimatedWrapper>
+        </AnimatedWrapper>
+      </div>
+
+      <div className="w-full md:hidden flex justify-center items-center">
+        <Image
+          src="/images/home.png"
+          alt="home-screen"
+          width={430}
+          height={650}
+          className="my-2 w-full max-w-[380px] h-auto  object-contain"
+        />
+      </div>
     </section>
   );
 }
